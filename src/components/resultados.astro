@@ -1,0 +1,830 @@
+---
+let atras_mini : String = "<"
+let adelante_mini : String = ">"
+---
+
+<div class="container-fluid" style="margin-top: 2rem; margin-bottom: 4rem;">
+    <div class="row justify-content-center">
+        <div class="col-5 text-center">
+            <button id="btn-reiniciar" class="btn-reiniciar">Reiniciar todos los resultados</button>
+        </div>
+    </div>
+</div>
+
+<div id="iniciacion" class="container-fluid contenedor-cuadro">
+    <div class="row justify-content-center">
+        <div class="col-3 contenedor-titulo-fecha">
+            <h2 class="texto-general texto-fechas text-center">FECHA</h2>
+        </div>
+        <div class="col-10 text-center" style="margin-bottom: 2rem;">
+            <p class="texto-general texto-grupo-numero" style="color: #778582;">PRESIONA EL BOTÓN <strong style="color: #dbd5ba;">FECHAS</strong> EN ALGÚN GRUPO PARA VER LOS RESULTADOS</p>
+        </div>
+    </div>
+</div>
+
+<div id="cuadro" class="container-fluid contenedor-cuadro" hidden>
+    <div class="row justify-content-center">
+        <div class="col-3 contenedor-titulo-fecha">
+            <h2 id="numero_fecha" class="texto-general texto-fechas text-center">FECHA 1</h2>
+        </div>
+        <div class="col-10 text-center">
+            <p class="texto-general texto-grupo-numero" id="grupo"></p>
+        </div>
+        <div class="col-10 contenedor-resultados">
+            <div class="adorno-contenedor-resultados"></div>
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 col-lg-5 text-center align-items-center">
+                        <div class="container-fluid">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-5 col-md-3 text-center">
+                                    <img src="" alt="escudo1" class="img-fluid escudo-img-sorteo" id="escudo1">
+                                </div>
+                                <div class="col-2 col-lg-6 text-center">
+                                    <p class="texto-general texto-equipo" id="equipo1"></p>
+                                </div>
+                                <div class="col-5 col-lg-3 text-center">
+                                    <input type="number" class="form-control text-center" id="resultado1" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-1 text-center">
+                        <div class="linea"></div>
+                    </div>
+                    <div class="col-12 col-lg-5 text-center align-items-center">
+                        <div class="container-fluid">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-5 col-lg-3 text-center">
+                                    <input type="number" class="form-control text-center" id="resultado2" placeholder="0">
+                                </div>
+                                <div class="col-2 col-lg-6 text-center">
+                                    <p class="texto-general texto-equipo" id="equipo2"></p>
+                                </div>
+                                <div class="col-5 col-lg-3 text-center">
+                                    <img src="" alt="escudo2" class="img-fluid escudo-img-sorteo" id="escudo2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-10 contenedor-resultados">
+            <div class="adorno-contenedor-resultados"></div>
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 col-lg-5 text-center align-items-center">
+                        <div class="container-fluid">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-5 col-md-3 text-center">
+                                    <img src="" alt="escudo3" class="img-fluid escudo-img-sorteo" id="escudo3">
+                                </div>
+                                <div class="col-2 col-lg-6 text-center">
+                                    <p class="texto-general texto-equipo" id="equipo3"></p>
+                                </div>
+                                <div class="col-5 col-lg-3 text-center">
+                                    <input type="number" class="form-control text-center" id="resultado3" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-1 text-center">
+                        <div class="linea"></div>
+                    </div>
+                    <div class="col-12 col-lg-5 text-center align-items-center">
+                        <div class="container-fluid">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-5 col-lg-3 text-center">
+                                    <input type="number" class="form-control text-center" id="resultado4" placeholder="0">
+                                </div>
+                                <div class="col-2 col-lg-6 text-center">
+                                    <p class="texto-general texto-equipo" id="equipo4"></p>
+                                </div>
+                                <div class="col-5 col-lg-3 text-center">
+                                    <img src="" alt="escudo4" class="img-fluid escudo-img-sorteo" id="escudo4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-center" style="margin-top: 2rem; margin-bottom: 5rem;">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center">
+                    <div class="d-none d-md-block col-3 text-end">
+                        <button id="btn-atras" class="btn btn-fechas btn-fechas-cambio">Fecha anterior</button>
+                    </div>
+                     <div class="col-10 col-md-3 text-center">
+                        <button id="btn-enviar" class="btn btn-fechas btn-guardar-fecha">Guardar</button>
+                    </div>
+                    <div class="d-block d-md-none col-5 text-center">
+                        <button id="btn-atras-mini" class="btn btn-fechas btn-fechas-cambio">{atras_mini}</button>
+                    </div>
+                    <div class="d-block d-md-none col-5 text-center">
+                        <button id="btn-adelante-mini" class="btn btn-fechas btn-fechas-cambio">{adelante_mini}</button>
+                    </div>
+                    <div class="d-none d-md-block col-3 text-start">
+                        <button id="btn-adelante" class="btn btn-fechas btn-fechas-cambio">Fecha siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tabla-posiciones" class="container-fluid tabla-posiciones" hidden>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <h3 class="texto-general titulo-posiciones">POSICIONES</h3>
+        </div>
+        <div class="col-10 col-md-8">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 tabla-titulos">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-2 text-center">
+                                    <p id="rankingLabel" class="texto-tabla"><strong>POS</strong></p>
+                                </div>
+                                <div class="col-4 text-start">
+                                    <p id="posicionLabel" class="texto-tabla">EQUIPO</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="puntosLabel" class="texto-tabla"><strong>PTS</strong></p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="partidosLabel" class="texto-tabla"><strong>PJ</strong></p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="diferenciaLabel" class="texto-tabla"><strong>DG</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adorno-secundario1-tabla"></div>
+                        <div class="adorno-tabla"></div>
+                        <div class="adorno-secundario2-tabla"></div>
+                    </div>
+                    <div class="col-12 tabla-valores">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-2 text-center">
+                                    <p id="ranking1" class="texto-tabla">1</p>
+                                </div>
+                                <div class="col-4 text-start">
+                                    <p id="posicion1" class="texto-tabla texto-tabla-valores">Equipo 1</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="puntos1" class="texto-tabla"><strong>Puntos</strong></p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="partidos1" class="texto-tabla texto-tabla-valores">Partidos</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="diferencia1" class="texto-tabla texto-tabla-valores">Diferencia de goles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adorno-secundario1-tabla"></div>
+                        <div class="adorno-tabla"></div>
+                        <div class="adorno-secundario2-tabla"></div>
+                    </div>
+                    <div class="col-12 tabla-valores">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-2 text-center">
+                                    <p id="ranking2" class="texto-tabla">2</p>
+                                </div>
+                                <div class="col-4 text-start">
+                                    <p id="posicion2" class="texto-tabla texto-tabla-valores">Equipo 2</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="puntos2" class="texto-tabla"><strong>Puntos</strong></p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="partidos2" class="texto-tabla texto-tabla-valores">Partidos</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="diferencia2" class="texto-tabla texto-tabla-valores">Diferencia de goles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adorno-secundario1-tabla"></div>
+                        <div class="adorno-tabla"></div>
+                        <div class="adorno-secundario2-tabla"></div>
+                    </div>
+                    <div class="col-12 tabla-valores">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-2 text-center">
+                                    <p id="ranking3" class="texto-tabla">3</p>
+                                </div>
+                                <div class="col-4 text-start">
+                                    <p id="posicion3" class="texto-tabla texto-tabla-valores">Equipo 3</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="puntos3" class="texto-tabla"><strong>Puntos</strong></p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="partidos3" class="texto-tabla texto-tabla-valores">Partidos</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="diferencia3" class="texto-tabla texto-tabla-valores">Diferencia de goles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adorno-secundario1-tabla"></div>
+                        <div class="adorno-tabla"></div>
+                        <div class="adorno-secundario2-tabla"></div>
+                    </div>
+                    <div class="col-12 tabla-valores">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-2 text-center">
+                                    <p id="ranking4" class="texto-tabla">4</p>
+                                </div>
+                                <div class="col-4 text-start">
+                                    <p id="posicion4" class="texto-tabla texto-tabla-valores">Equipo 4</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="puntos4" class="texto-tabla"><strong>Puntos</strong></p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="partidos4" class="texto-tabla texto-tabla-valores">Partidos</p>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <p id="diferencia4" class="texto-tabla texto-tabla-valores">Diferencia de goles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adorno-secundario1-tabla"></div>
+                        <div class="adorno-tabla"></div>
+                        <div class="adorno-secundario2-tabla"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    import type { Fecha } from "./../data/fecha"
+
+    let fechasResultados : Fecha = {
+        "fecha1" : {
+            "partido1": {
+                "equipo1": 1,
+                "resultadoEquipo1": -1,
+                "equipo2": 2,
+                "resultadoEquipo2": -1
+            },
+            "partido2": {
+                "equipo1": 3,
+                "resultadoEquipo1": -1,
+                "equipo2": 4,
+                "resultadoEquipo2": -1
+            }
+        },
+        "fecha2" : {
+            "partido1": {
+                "equipo1": 4,
+                "resultadoEquipo1": -1,
+                "equipo2": 2,
+                "resultadoEquipo2": -1
+            },
+            "partido2": {
+                "equipo1": 1,
+                "resultadoEquipo1": -1,
+                "equipo2": 3,
+                "resultadoEquipo2": -1
+            }
+        },
+        "fecha3" : {
+            "partido1": {
+                "equipo1": 2,
+                "resultadoEquipo1": -1,
+                "equipo2": 3,
+                "resultadoEquipo2": -1
+            },
+            "partido2": {
+                "equipo1": 4,
+                "resultadoEquipo1": -1,
+                "equipo2": 1,
+                "resultadoEquipo2": -1
+            }
+        }
+    }
+
+    const fechas = ["fechasGrupo1", "fechasGrupo2", "fechasGrupo3", "fechasGrupo4", "fechasGrupo5", "fechasGrupo6", "fechasGrupo7", "fechasGrupo8"];
+
+    let grupoActual: number = 0;
+
+    let grupoEquiposActual : any;
+
+    let iniciado : boolean = false;
+
+    const actualizarCelda = (id: string, texto: string) => {
+        const celda = document.getElementById(id);
+        if (celda) celda.textContent = texto;
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        fechas.forEach((nombre_grupo) => {
+
+            let resultados = localStorage.getItem(nombre_grupo);
+
+            if(!resultados){
+                localStorage.setItem(nombre_grupo, JSON.stringify(fechasResultados));
+            }
+        });
+
+    });
+
+    const establecerTablaPosiciones = (grupoActual: number, grupoEquiposActual: any) => {
+
+        const nombreGrupo = fechas[grupoActual];
+        const resultadosGrupoStr = localStorage.getItem(nombreGrupo);
+        if (!resultadosGrupoStr) return;
+
+        const fechaResultados = JSON.parse(resultadosGrupoStr);
+        const equipos = Object.keys(grupoEquiposActual);
+
+        const estadisticas = [[0, 0, 0, 0], [1, 0, 0, 0], [2, 0, 0, 0], [3, 0, 0, 0]]; // [index, partidosJugados, puntos, diferenciaGoles]
+
+        equipos.forEach((_, index) => {
+            let puntos = 0;
+            let partidosJugados = 0;
+            let diferenciaGoles = 0;
+
+            for (let i = 1; i <= 3; i++) {
+                const partido1 = fechaResultados["fecha" + i]["partido1"];
+                const partido2 = fechaResultados["fecha" + i]["partido2"];
+
+                [partido1, partido2].forEach((partido) => {
+                    if ((partido.equipo1 - 1 === index || partido.equipo2 - 1 === index) &&
+                        partido.resultadoEquipo1 !== -1 && partido.resultadoEquipo2 !== -1) {
+                        
+                        partidosJugados++;
+
+                        if ((partido.equipo1 - 1 === index && partido.resultadoEquipo1 > partido.resultadoEquipo2) ||
+                            (partido.equipo2 - 1 === index && partido.resultadoEquipo2 > partido.resultadoEquipo1)) {
+                            puntos += 3; // Victoria
+                        } else if (partido.resultadoEquipo1 === partido.resultadoEquipo2) {
+                            puntos += 1; // Empate
+                        }
+
+                        diferenciaGoles += (partido.equipo1 - 1 === index ? partido.resultadoEquipo1 - partido.resultadoEquipo2 : partido.resultadoEquipo2 - partido.resultadoEquipo1);
+                    }
+                });
+            }
+
+            estadisticas[index] = [index, partidosJugados, puntos, diferenciaGoles];
+        });
+
+        estadisticas.sort((a, b) => {
+            if (b[2] !== a[2]) return b[2] - a[2]; // Puntos
+            return b[3] - a[3]; // Diferencia de goles
+        });
+
+        const actualizarTamanoTexto = () => {
+            const esPantallaGrande = window.innerWidth > 992;
+            const texto = (equipo: any) => esPantallaGrande ? equipo.nombre : equipo.diminutivo;
+            actualizarCelda("posicion1", texto(grupoEquiposActual[estadisticas[0][0]]));
+            actualizarCelda("posicion2", texto(grupoEquiposActual[estadisticas[1][0]]));
+            actualizarCelda("posicion3", texto(grupoEquiposActual[estadisticas[2][0]]));
+            actualizarCelda("posicion4", texto(grupoEquiposActual[estadisticas[3][0]]));
+        };
+
+        actualizarTamanoTexto();
+        window.addEventListener("resize", actualizarTamanoTexto);
+
+        actualizarCelda("partidos1", String(estadisticas[0][1]));
+        actualizarCelda("partidos2", String(estadisticas[1][1]));
+        actualizarCelda("partidos3", String(estadisticas[2][1]));
+        actualizarCelda("partidos4", String(estadisticas[3][1]));
+
+        actualizarCelda("puntos1", String(estadisticas[0][2]));
+        actualizarCelda("puntos2", String(estadisticas[1][2]));
+        actualizarCelda("puntos3", String(estadisticas[2][2]));
+        actualizarCelda("puntos4", String(estadisticas[3][2]));
+
+        actualizarCelda("diferencia1", String(estadisticas[0][3]));
+        actualizarCelda("diferencia2", String(estadisticas[1][3]));
+        actualizarCelda("diferencia3", String(estadisticas[2][3]));
+        actualizarCelda("diferencia4", String(estadisticas[3][3]));
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        window.addEventListener("grupoElegido", (event) => {
+            const customEvent = event as CustomEvent<any>;
+            const { grupoEscogido, grupoEquipos } = customEvent.detail;
+
+            grupoActual = grupoEscogido;
+            grupoEquiposActual = grupoEquipos;
+
+            if (iniciado == false) {
+                let cuadro = document.getElementById("cuadro");
+                let presentacion = document.getElementById("iniciacion");
+                let tablaPosiciones = document.getElementById("tabla-posiciones");
+                if (cuadro && presentacion && tablaPosiciones) {
+                    presentacion.setAttribute("hidden", "true");
+                    cuadro.removeAttribute("hidden");
+                    tablaPosiciones.removeAttribute("hidden");
+                }
+                iniciado = true;
+            }
+
+
+            establecerTablaPosiciones(grupoActual, grupoEquiposActual);
+
+
+            const elemento = document.getElementById("grupo");
+            if (elemento) {
+                elemento.textContent = "Grupo " + String(grupoActual + 1);
+            }
+
+            num_fecha = 0;
+            cambio("adelante", grupoEquiposActual);
+        });
+    });
+
+    let num_fecha = 1;
+    let fecha_actual: string;
+
+    let equipo1_partido1 = document.getElementById("equipo1");
+    let equipo2_partido1 = document.getElementById("equipo2");
+    let equipo1_partido2 = document.getElementById("equipo3");
+    let equipo2_partido2 = document.getElementById("equipo4");
+    let escudo1_partido1 = document.getElementById("escudo1");
+    let escudo2_partido1 = document.getElementById("escudo2");
+    let escudo1_partido2 = document.getElementById("escudo3");
+    let escudo2_partido2 = document.getElementById("escudo4");
+    let resultado1 = document.getElementById("resultado1");
+    let resultado2 = document.getElementById("resultado2");
+    let resultado3 = document.getElementById("resultado3");
+    let resultado4 = document.getElementById("resultado4");
+
+
+    function cambio(tipo: string, grupoEquiposActual?: any) {
+        num_fecha = tipo === "atras" ? num_fecha - 1 : num_fecha + 1;
+        fecha_actual = "FECHA " + String(num_fecha);
+
+        const fechaElement = document.getElementById("numero_fecha");
+        if (fechaElement) {
+            fechaElement.textContent = fecha_actual;
+        }
+
+        const nombreGrupo = fechas[grupoActual];
+        const resultadosStr = localStorage.getItem(nombreGrupo);
+        console.log(resultadosStr);
+        if (!resultadosStr) return;
+
+        const fechaResultados = JSON.parse(resultadosStr);
+        const fechaData = fechaResultados["fecha" + String(num_fecha)];
+
+        if (
+            equipo1_partido1 && equipo2_partido1 &&
+            equipo1_partido2 && equipo2_partido2 &&
+            escudo1_partido1 && escudo2_partido1 &&
+            escudo1_partido2 && escudo2_partido2 &&
+            resultado1 && resultado2 && resultado3 && resultado4
+        ) {
+            const { partido1, partido2 } = fechaData;
+
+            const actualizarTextoEquipos = () => {
+                const esPantallaGrande = window.innerWidth > 1200;
+                const texto = (equipo: any) => esPantallaGrande ? equipo.nombre : equipo.diminutivo;
+
+                equipo1_partido1.textContent = texto(grupoEquiposActual[partido1.equipo1 - 1]);
+                equipo2_partido1.textContent = texto(grupoEquiposActual[partido1.equipo2 - 1]);
+                equipo1_partido2.textContent = texto(grupoEquiposActual[partido2.equipo1 - 1]);
+                equipo2_partido2.textContent = texto(grupoEquiposActual[partido2.equipo2 - 1]);
+            };
+
+            actualizarTextoEquipos();
+            window.addEventListener("resize", actualizarTextoEquipos);
+
+            escudo1_partido1.setAttribute("src", grupoEquiposActual[partido1.equipo1 - 1].img);
+            escudo2_partido1.setAttribute("src", grupoEquiposActual[partido1.equipo2 - 1].img);
+            escudo1_partido2.setAttribute("src", grupoEquiposActual[partido2.equipo1 - 1].img);
+            escudo2_partido2.setAttribute("src", grupoEquiposActual[partido2.equipo2 - 1].img);
+
+            (resultado1 as HTMLInputElement).value = partido1.resultadoEquipo1 !== -1 ? String(partido1.resultadoEquipo1) : "0";
+            (resultado2 as HTMLInputElement).value = partido1.resultadoEquipo2 !== -1 ? String(partido1.resultadoEquipo2) : "0";
+            (resultado3 as HTMLInputElement).value = partido2.resultadoEquipo1 !== -1 ? String(partido2.resultadoEquipo1) : "0";
+            (resultado4 as HTMLInputElement).value = partido2.resultadoEquipo2 !== -1 ? String(partido2.resultadoEquipo2) : "0";
+        }
+
+        // Habilitar / deshabilitar botones
+        const btnAdelante = document.getElementById("btn-adelante");
+        const btnAdelanteMini = document.getElementById("btn-adelante-mini");
+        const btnAtras = document.getElementById("btn-atras");
+        const btnAtrasMini = document.getElementById("btn-atras-mini");
+
+        if (num_fecha === 3) {
+            btnAdelante?.setAttribute("disabled", "true");
+            btnAdelanteMini?.setAttribute("disabled", "true");
+        } else {
+            btnAdelante?.removeAttribute("disabled");
+            btnAdelanteMini?.removeAttribute("disabled");
+        }
+
+        if (num_fecha === 1) {
+            btnAtras?.setAttribute("disabled", "true");
+            btnAtrasMini?.setAttribute("disabled", "true");
+        } else {
+            btnAtras?.removeAttribute("disabled");
+            btnAtrasMini?.removeAttribute("disabled");
+        }
+    }
+
+    document.getElementById("btn-atras")?.addEventListener("click", () => cambio("atras", grupoEquiposActual));
+    document.getElementById("btn-atras-mini")?.addEventListener("click", () => cambio("atras", grupoEquiposActual));
+    document.getElementById("btn-adelante")?.addEventListener("click", () => cambio("adelante", grupoEquiposActual));
+    document.getElementById("btn-adelante-mini")?.addEventListener("click", () => cambio("adelante", grupoEquiposActual));
+    document.getElementById("btn-enviar")?.addEventListener("click", () => {
+        const nombreGrupo = fechas[grupoActual];
+        const resultadosStr = localStorage.getItem(nombreGrupo);
+        if (!resultadosStr) return;
+
+        const fechaResultados = JSON.parse(resultadosStr);
+        const fechaData = fechaResultados["fecha" + String(num_fecha)];
+
+        const resultado1 = document.getElementById("resultado1") as HTMLInputElement;
+        const resultado2 = document.getElementById("resultado2") as HTMLInputElement;
+        const resultado3 = document.getElementById("resultado3") as HTMLInputElement;
+        const resultado4 = document.getElementById("resultado4") as HTMLInputElement;
+
+        fechaData.partido1.resultadoEquipo1 = parseInt(resultado1.value) || 0;
+        fechaData.partido1.resultadoEquipo2 = parseInt(resultado2.value) || 0;
+        fechaData.partido2.resultadoEquipo1 = parseInt(resultado3.value) || 0;
+        fechaData.partido2.resultadoEquipo2 = parseInt(resultado4.value) || 0;
+
+        localStorage.setItem(nombreGrupo, JSON.stringify(fechaResultados));
+        establecerTablaPosiciones(grupoActual, grupoEquiposActual);
+    });
+
+    document.getElementById("btn-reiniciar")?.addEventListener("click", () => {
+        fechas.forEach((nombre_grupo) => {
+
+            localStorage.removeItem(nombre_grupo);
+        });
+
+        location.reload();
+    });
+
+</script>
+
+<style>
+    .contenedor-cuadro{
+        width: 80%;
+        height: auto;
+        border: 1px solid white;
+        background: radial-gradient(circle at right, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%) ,
+              radial-gradient(circle at left, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%);
+        margin-top: 2.5rem;
+        margin-bottom: 4.5rem;
+        border-radius: 1rem;
+    }
+
+    .contenedor-titulo-fecha{
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        background-color: white;
+    }
+
+    .texto-general{
+        margin: 0;
+    }
+
+    .texto-fechas{
+        font-size: 2rem;
+        padding-top: 1.3rem;
+        padding-bottom: 1rem;
+        color: black;
+    }
+
+    .texto-grupo-numero{
+        font-size: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .texto-equipo{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .linea{
+        position:relative;
+        padding: 0;
+        margin: 0;
+        right: 30%;
+        left: 30%;
+        top: 0;
+        bottom: 5px;
+        width: 40%;
+        height: 2px;
+        background: white;
+        z-index: 1;
+    }
+
+    .titulo-posiciones{
+        font-size: 2rem;
+    }
+
+    .tabla-posiciones{
+        margin-top: 2.5rem;
+        margin-bottom: 5rem;
+    }
+
+    .texto-tabla{
+        color: white;
+		font-family: "Kanit", sans-serif;
+  		font-weight: 500;
+  		font-style: normal;
+    }
+
+    .contenedor-resultados{
+        border: 2px solid #050404;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        position: relative;
+    }
+
+    .adorno-contenedor-resultados{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        right: 25%;
+        left: 25%;
+        top: -2px;
+        width: 50%;
+        height: 2px;
+        background: #050404;
+        background: linear-gradient(90deg,rgba(5, 4, 4, 1) 0%, rgba(158, 154, 125, 1) 50%, rgba(5, 4, 4, 1) 100%);
+        z-index: 1;
+    }
+
+    .btn-guardar-fecha{
+        padding-top: 0.7rem;
+        margin-bottom: 0;
+    }
+
+    .btn-fechas-cambio{
+        padding-top: 0.7rem;
+    }
+
+    .btn-fechas:disabled{
+        border: 4px solid #2c261d;
+        background-color: #1f1d1a;
+        color: white;
+    }
+
+    .tabla-titulos{
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .tabla-valores{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+    .texto-tabla-valores{
+        font-weight: 300;
+    }
+
+    .adorno-tabla{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        right: 20%;
+        left: 20%;
+        top: 3rem;
+        width: 60%;
+        height: 2px;
+        background: #272a30;
+        background: linear-gradient(90deg,rgba(39, 42, 48, 1) 0%, rgba(112, 124, 143, 1) 50%, rgba(39, 42, 48, 1) 100%);
+        z-index: 1;
+    }
+
+    .adorno-secundario1-tabla{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        right: auto;
+        left: 5%;
+        top: 3rem;
+        width: 15%;
+        height: 2px;
+        background: #272a30;
+        background: linear-gradient(90deg,rgba(39, 42, 48, 0) 0%, rgba(112, 124, 143, 0) 0%, rgba(39, 42, 48, 1) 100%);
+        z-index: 1;
+    }
+
+    .adorno-secundario2-tabla{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        right: 5%;
+        left: auto;
+        top: 3rem;
+        width: 15%;
+        height: 2px;
+        background: #272a30;
+        background: linear-gradient(90deg,rgba(39, 42, 48, 1) 0%, rgba(112, 124, 143, 0) 100%, rgba(39, 42, 48, 0) 100%);
+        z-index: 1;
+    }
+
+    .btn-reiniciar{
+		width: 40%;
+		padding-top: 1rem;
+        padding-bottom: 1rem;
+		font-family: "Bebas Neue", sans-serif;
+  		font-weight: 400;
+  		font-style: normal;
+		font-size: 1.2rem;
+		background-color: #514d35;
+		background-size: 100%;
+		color: white;
+		border-radius: 10px;
+		border: 4px solid #322c0f;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	}
+
+    .btn-reiniciar:hover{
+		background-color: rgb(38, 36, 24);
+        border: 4px solid #322c0f;
+		color: white;
+	}
+
+    .btn-reiniciar:active{
+		background-color: #413b3c;
+        border: 4px solid #32291a;
+		color: white;
+	}
+
+    @media (max-width: 992px){
+
+        .texto-fechas{
+            font-size: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .texto-grupo-numero{
+            font-size: 0.8rem;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .btn-guardar-fecha{
+            margin-bottom: 1rem;
+            width: 80%;
+        }
+
+        .btn-fechas{
+            font-size: 0.8rem;
+            height: 100%;
+        }
+
+        .texto-equipo{
+            font-size: 0.8rem;
+        }
+
+        .linea{
+            width: 90%;
+            left: 5%;
+            right: 5%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tabla-titulos{
+            margin-top: 2rem;
+        }
+
+        .titulo-posiciones{
+            font-size: 1rem;
+        }
+
+        .form-control{
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .texto-tabla{
+            font-size: 0.8rem;
+        }
+    }
+
+</style>

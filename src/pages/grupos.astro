@@ -1,0 +1,106 @@
+---
+import Layout from "./../layouts/main-layout.astro";
+import GruposReducidos from "../components/grupos_reducidos.astro";
+import Resultados from "../components/resultados.astro"
+---
+
+<Layout titulo="Grupos">
+
+    <main>
+
+        <div class="contenedor-titulo">
+            <a href="/">
+                <img src="/images/volver.png" alt="volver" class="img-fluid btn-volver">
+            </a>
+            <h1 class="texto-general titulo-pagina">GRUPOS</h1>
+        </div>
+
+        <div class="aparecer">
+            <div class="container-fluid contenedor-general">
+                <div class="row justify-content-evenly">
+                        <GruposReducidos></GruposReducidos>
+                </div>
+            </div>
+        </div>
+
+        <div id="fechas" class="aparecer">
+            <Resultados></Resultados>
+        </div>
+
+    </main>
+
+</Layout>
+
+<style>
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    body{
+        overflow: auto;
+    }
+
+    .titulo-pagina{
+        font-size: 2rem;
+
+    }
+
+    .contenedor-titulo{
+        padding-top: 3%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contenedor-general{
+        margin-top: 2rem; 
+        padding-bottom: 1.5rem;
+    }
+
+    .grupo{
+        margin-bottom: 3rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        position: relative;
+        opacity: 1;
+    }
+
+    .aparecer{
+        animation: fadeIn 0.7s ease-in-out forwards;
+    }
+
+    .btn-volver{
+        position: absolute;
+        max-width: 50px;
+        left: 1.5rem;
+        top: 1.5rem;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    .btn-volver:hover{
+        filter: drop-shadow( 0 0 20px #dec498);
+    }
+
+    @media (max-width: 992px){
+        
+        .titulo-pagina{
+            padding-top: 5%;
+            font-size: 1.5rem;
+        }
+        
+        .btn-volver{
+            max-width: 25px;
+        }
+
+        .contenedor-general{
+            margin-top: 0.5rem;
+        }
+    }
+
+</style>

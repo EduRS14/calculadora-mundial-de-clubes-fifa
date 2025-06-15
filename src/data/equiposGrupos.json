@@ -1,0 +1,226 @@
+[
+    {
+        "id": 1, 
+        "nombre": "Palmeiras", 
+        "pais": "Brasil", 
+        "diminutivo": "PAL", 
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/1200px-Palmeiras_logo.svg.png"
+    },
+    {
+        "id": 2,
+        "nombre": "PORTO",
+        "pais": "Portugal",
+        "diminutivo": "POR",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/FC_Porto.svg/1200px-FC_Porto.svg.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Al Ahly",
+        "pais": "Egipto",
+        "diminutivo": "AHL",
+        "img": "https://upload.wikimedia.org/wikipedia/en/7/70/Al_Ahly_SC_logo.svg"
+    },
+    {
+        "id": 4,
+        "nombre": "Inter Miami",
+        "pais": "Estados Unidos",
+        "diminutivo": "MIA",
+        "img": "https://a.espncdn.com/guid/68c59d9b-7197-356f-8418-52c0d216852c/logos/primary_logo_on_primary_color.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Paris Saint-Germain",
+        "pais": "Francia",
+        "diminutivo": "PSG",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/640px-Paris_Saint-Germain_F.C..svg.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Atlético Madrid",
+        "pais": "España",
+        "diminutivo": "ATM",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Atletico_Madrid_Logo_2024.svg/250px-Atletico_Madrid_Logo_2024.svg.png"
+    },
+    {
+        "id": 7,
+        "nombre": "Botafogo",
+        "pais": "Brasil",
+        "diminutivo": "BOT",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/640px-Botafogo_de_Futebol_e_Regatas_logo.svg.png"
+    },
+    {
+        "id": 8,
+        "nombre": "Seattle Sounders",
+        "pais": "Estados Unidos",
+        "diminutivo": "SEA",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Seattle_Sounders_logo.svg/1200px-Seattle_Sounders_logo.svg.png"
+    },
+    {
+        "id": 9,
+        "nombre": "Bayern Múnich",
+        "pais": "Alemania",
+        "diminutivo": "BAY",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/250px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png"
+    },
+    {
+        "id": 10,
+        "nombre": "Auckland City",
+        "pais": "Nueva Zelanda",
+        "diminutivo": "AUC",
+        "img": "https://upload.wikimedia.org/wikipedia/en/5/53/New_Auckland_City_FC_logo_%28updated_2022%29.png"
+    },
+    {
+        "id": 11,
+        "nombre": "Boca Juniors",
+        "pais": "Argentina",
+        "diminutivo": "BOC",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/CABJ70.png/960px-CABJ70.png"
+    },
+    {
+        "id": 12,
+        "nombre": "Benfica",
+        "pais": "Portugal",
+        "diminutivo": "BEN",
+        "img": "https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/1929.png"
+    },
+    {
+        "id": 13,
+        "nombre": "Flamengo",
+        "pais": "Brasil",
+        "diminutivo": "FLA",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Flamengo_braz_logo.svg/1200px-Flamengo_braz_logo.svg.png"
+    },
+    {
+        "id": 14,
+        "nombre": "Espérance",
+        "pais": "Túnez",
+        "diminutivo": "EST",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Esp%C3%A9rance_Sportive_de_Tunis_logo.png/250px-Esp%C3%A9rance_Sportive_de_Tunis_logo.png"
+    },
+    {
+        "id": 15,
+        "nombre": "Chelsea",
+        "pais": "Inglaterra",
+        "diminutivo": "CHE",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.png"
+    },
+    {
+        "id": 16,
+        "nombre": "Los Angeles FC",
+        "pais": "Estados Unidos",
+        "diminutivo": "LAF",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Los_Angeles_Football_Club.svg/1200px-Los_Angeles_Football_Club.svg.png"
+    },
+    {
+        "id": 17,
+        "nombre": "River Plate",
+        "pais": "Argentina",
+        "diminutivo": "RIV",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Escudo_del_C_A_River_Plate.svg/640px-Escudo_del_C_A_River_Plate.svg.png"
+    },
+    {
+        "id": 18,
+        "nombre": "Urawa Red Diamonds",
+        "pais": "Japón",
+        "diminutivo": "URD",
+        "img": "https://a.espncdn.com/i/teamlogos/soccer/500-dark/3385.png"
+    },
+    {
+        "id": 19,
+        "nombre": "Monterrey",
+        "pais": "México",
+        "diminutivo": "MTY",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Club_de_F%C3%BAtbol_Monterrey_2019_Logo.svg/800px-Club_de_F%C3%BAtbol_Monterrey_2019_Logo.svg.png"
+    },
+    {
+        "id": 20,
+        "nombre": "Inter",
+        "pais": "Italia",
+        "diminutivo": "INT",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/800px-FC_Internazionale_Milano_2021.svg.png"
+    },
+    {
+        "id": 21,
+        "nombre": "Fluminense",
+        "pais": "Brasil",
+        "diminutivo": "FLU",
+        "img": "https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/3445.png"
+    },
+    {
+        "id": 22,
+        "nombre": "Borussia Dortmund",
+        "pais": "Alemania",
+        "diminutivo": "DOR",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/250px-Borussia_Dortmund_logo.svg.png"
+    },
+    {
+        "id": 23,
+        "nombre": "Ulsan Hyundai",
+        "pais": "Corea del Sur",
+        "diminutivo": "ULS",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Ulsan_Hyundai_FC.svg/1200px-Ulsan_Hyundai_FC.svg.png"
+    },
+    {
+        "id": 24,
+        "nombre": "Mamelodi Sundowns",
+        "pais": "Sudáfrica",
+        "diminutivo": "SUN",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/Mamelodi_Sundowns_F.C.svg/1200px-Mamelodi_Sundowns_F.C.svg.png"
+    },
+    {
+        "id": 25,
+        "nombre": "Manchester City",
+        "pais": "Inglaterra",
+        "diminutivo": "MCI",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png"
+    },
+    {
+        "id": 26,
+        "nombre": "Wydad AC",
+        "pais": "Marruecos",
+        "diminutivo": "WAC",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/1/18/Wydad_AC_crest_%282022%29.svg/1200px-Wydad_AC_crest_%282022%29.svg.png"
+    },
+    {
+        "id": 27,
+        "nombre": "Al Ain",
+        "pais": "Emiratos Árabes Unidos",
+        "diminutivo": "AIN",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/45/Al_Ain_Football_Club.png"
+    },
+    {
+        "id": 28,
+        "nombre": "Juventus",
+        "pais": "Italia",
+        "diminutivo": "JUV",
+        "img": "https://www.ceroacero.es/img/logos/equipas/64_imgbank_1740148843.png"
+    },
+    {
+        "id": 29,
+        "nombre": "Real Madrid",
+        "pais": "España",
+        "diminutivo": "RMA",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png"
+    },
+    {
+        "id": 30,
+        "nombre": "Al Hilal",
+        "pais": "Arabia Saudí",
+        "diminutivo": "HIL",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Al_Hilal_SFC_Logo.svg/1200px-Al_Hilal_SFC_Logo.svg.png"
+    },
+    {
+        "id": 31,
+        "nombre": "Pachuca",
+        "pais": "México",
+        "diminutivo": "PAC",
+        "img": "https://as01.epimg.net/img/comunes/fotos/fichas/equipos/large/4245.png"
+    },
+    {
+        "id": 32,
+        "nombre": "RB Salzburg",
+        "pais": "Austria",
+        "diminutivo": "RBS",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/1200px-FC_Red_Bull_Salzburg_logo.svg.png"
+    }
+]

@@ -1,0 +1,177 @@
+---
+
+const grupos = ["grupo1", "grupo2", "grupo3", "grupo4", "grupo5", "grupo6", "grupo7", "grupo8"];
+
+---
+
+{grupos.map((grupo, index) => (
+    <div class="col-5 col-xxl-3 grupo text-center">
+        <div class="linea"></div>
+        <div class="container-fluid contenedor-equipos">
+            <div id={grupo} class="row justify-content-center align-items-center">
+            </div>
+        </div>
+    </div>
+))}
+
+<script>
+
+    import type { EquipoParticipante } from "./../data/interfaz";
+    import equiposGrupos from "./../data/equiposGrupos.json";
+
+    let equipos : EquipoParticipante[] = equiposGrupos;
+
+    equipos = equipos.map(equipo => ({
+        ...equipo,
+        nombre: equipo.nombre?.toUpperCase() ?? "NOMBRE DESCONOCIDO"
+    }));
+
+    const grupo_seleccionado = (id: string) =>{
+        window.dispatchEvent(new CustomEvent("grupoElegido", {
+                            detail: { 
+                                grupoEscogido: Number(id), 
+                                grupoEquipos: equipos.slice(Number(id) * 4, Number(id) * 4 + 4)
+                            }
+                        }));
+    }
+
+    let elemento;
+    let contenedor, fila, columna1, columna2, img;
+
+    const grupos = ["grupo1", "grupo2", "grupo3", "grupo4", "grupo5", "grupo6", "grupo7", "grupo8"];
+    const nombres_grupos = ["GRUPO 1", "GRUPO 2", "GRUPO 3", "GRUPO 4", "GRUPO 5", "GRUPO 6", "GRUPO 7", "GRUPO 8"];
+
+    grupos.forEach((grupo, index: number) => {
+
+        let lista_elementos = document.getElementById(grupo);
+        const titulo = document.createElement("span");
+        titulo.classList.add("titulo-grupo", "texto-general");
+        titulo.textContent = nombres_grupos[index];
+        let contenedor_titulo = document.createElement("div");
+        contenedor_titulo.classList.add("col-12", "text-center", "contenedor-titulo-grupo");
+        contenedor_titulo.appendChild(titulo);
+        lista_elementos?.appendChild(contenedor_titulo);
+
+        for (let i = index * 4; i < index * 4 + 4; i++) {
+            elemento = document.createElement("div");
+            elemento.classList.add("col-3");
+
+            contenedor = document.createElement("div");
+            contenedor.classList.add("container-fluid", "justify-content-center");
+
+            fila = document.createElement("div");
+            fila.classList.add("row", "align-items-center", "original");
+            fila.id = equipos[i].diminutivo;
+
+            columna1 = document.createElement("div");
+            columna1.classList.add("col-12", "mx-0", "px-0", "text-center");
+            columna1.style.marginBottom = "0.2rem";
+
+            columna2 = document.createElement("div");
+            columna2.classList.add("col-12", "mx-0", "px-0", "text-center");
+
+            img = document.createElement("img");
+            img.setAttribute("src", equipos[i].img);
+            img.setAttribute("alt", "escudo");
+            img.classList.add("img-fluid");
+            img.classList.add("escudo-img-sorteo")
+
+            columna1.appendChild(img);
+
+            fila.append(columna1, columna2);
+
+            contenedor.appendChild(fila);
+
+            elemento.appendChild(contenedor);
+
+            lista_elementos?.appendChild(elemento);
+        };
+        elemento = document.createElement("div");
+        elemento.classList.add("col-10", "mt-4");
+        let btn = document.createElement("button");
+        btn.textContent = "FECHAS";
+        btn.id = String(index);
+        btn.addEventListener("click", () => grupo_seleccionado(btn.id))
+        btn.classList.add("btn", "btn-fechas")
+        elemento.appendChild(btn);
+        lista_elementos?.appendChild(elemento);
+
+    });
+</script>
+
+
+<style>
+
+    @keyframes scale-up-center{0%{transform:scale(1)}100%{transform:scale(1.1)}}
+
+    .contenedor-equipos{
+        max-width: 300px;
+        height: auto;
+        border: 1px solid rgba(135,102,41,1);
+        background: radial-gradient(circle at right, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%) ,
+              radial-gradient(circle at left, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%);
+        margin-top: 2rem;
+        padding-bottom: 1.5rem;
+        border: 1px solid rgba(23, 25, 26, 0.4);
+    }
+
+    span{
+        font-size: 32px;
+    }
+
+    .grupo{
+        margin-bottom: 2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        position: relative;
+        opacity: 1;
+    }
+
+    .linea{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        right: 20%;
+        left: 20%;
+        top: 5.8rem;
+        width: 60%;
+        height: 2px;
+        background: #000000;
+        background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(120, 97, 47, 1) 50%, rgba(0, 0, 0, 1) 100%);
+        z-index: 1;
+    }
+
+    .grupo:hover{animation:scale-up-center .4s cubic-bezier(.55,.055,.675,.19) both}
+
+    @media (max-width: 992px){
+        
+        .contenedor-equipos{
+            max-width: 400px;
+            height: auto;
+            margin-top: 2rem;
+            padding-bottom: 1rem;
+        }
+
+        .titulo-grupo{
+            font-size: 1rem;
+            top: 1.2rem;
+        }
+
+        .contenedor-general{
+            margin-top: 0; 
+        }
+
+        .equipo{
+            margin-bottom: 1rem;
+        }
+
+        .linea{
+            top: 5.2rem;
+            right: 25%;
+            left: 25%;
+            width: 50%;
+            height: 1px;;
+        }
+    }
+
+</style>
