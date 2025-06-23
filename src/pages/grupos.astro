@@ -46,18 +46,6 @@ import Resultados from "../components/resultados.astro"
         overflow: auto;
     }
 
-    .titulo-pagina{
-        font-size: 2rem;
-
-    }
-
-    .contenedor-titulo{
-        padding-top: 3%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
     .contenedor-general{
         margin-top: 2rem; 
         padding-bottom: 1.5rem;
@@ -75,28 +63,7 @@ import Resultados from "../components/resultados.astro"
         animation: fadeIn 0.7s ease-in-out forwards;
     }
 
-    .btn-volver{
-        position: absolute;
-        max-width: 50px;
-        left: 1.5rem;
-        top: 1.5rem;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
-
-    .btn-volver:hover{
-        filter: drop-shadow( 0 0 20px #dec498);
-    }
-
     @media (max-width: 992px){
-        
-        .titulo-pagina{
-            padding-top: 5%;
-            font-size: 1.5rem;
-        }
-        
-        .btn-volver{
-            max-width: 25px;
-        }
 
         .contenedor-general{
             margin-top: 0.5rem;

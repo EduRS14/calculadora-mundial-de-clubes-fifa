@@ -1,0 +1,712 @@
+---
+import Layout from "./../layouts/main-layout.astro";
+---
+
+<Layout titulo = "Partido Final">
+
+    <main>
+
+        <div class="contenedor-titulo">
+            <a href="/resultados_semifinales">
+                <img src="/images/volver.png" alt="volver" class="img-fluid btn-volver">
+            </a>
+
+            <div class="container-fluid contenedor-titulo-final">
+                <div class="row">
+                    <div class="col-12 text-center" style="margin-bottom: 0.5rem;">
+                        <h1 class="texto-general titulo-pagina titulo-final">GRAN FINAL</h1>
+                    </div>
+                    <div class="adorno-titulo"></div>
+                    <div class="col-12 text-center">
+                        <h2 class="texto-general titulo-pagina">Resultado</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-interfaz">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-9">
+                    <div class="container-fluid contenedor-duelo-nombres">
+                        <div class="adorno-nombres-1"></div>
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-5 text-center contenedor-nombres">
+                                <span id="nombreEquipoFinal_0" class="texto-general nombre-equipo">Equipo 1</span>
+                            </div>
+                            <div class="col-1 text-center contenedor-letra-vs">
+                                <span class="texto-general letra-vs">V</span>
+                            </div>
+                            <div class="col-5 text-center contenedor-nombres">
+                                <span id="nombreEquipoFinal_1" class="texto-general nombre-equipo">Equipo 2</span>
+                            </div>
+                        </div>
+                        <div class="adorno-nombres-2"></div>
+                    </div>
+                </div>
+                <div class="col-9 contenedor-duelo-escudos">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-4 text-center contenedor-escudo-fondo1">
+                                <div class="contenedor-escudo mx-auto">
+                                    <img id="escudoEquipoFinal_0" src="./images/trofeo.webp" alt="escudo" class="img-fluid escudo-equipo-final">
+                                </div>
+                            </div>
+                            <div class="col-3 text-center contenedor-logo-fondo">
+                                <img src="./images/trofeo.webp" alt="logo-torneo" class="img-fluid logo-torneo">
+                            </div>
+                            <div class="col-4 text-center contenedor-escudo-fondo2">
+                                <div class="contenedor-escudo mx-auto">
+                                    <img id="escudoEquipoFinal_1" src="./images/trofeo.webp" alt="escudo" class="img-fluid escudo-equipo-final">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="container-fluid contenedor-duelo-resultados">
+                        <div class="adorno-resultados1"></div>
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-5 text-center contenedor-inputs p-0">
+                                <div class="container-fluid">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-12 p-0">
+                                            <div class="container-fluid">
+                                                <div class="row align-items-center justify-content-center">
+                                                    <div class="col-12 contenedor-input-goles">
+                                                        <div class="container-fluid">
+                                                            <div class="row align-items-center justify-content-center">
+                                                                <div class="col-4 col-md-6 contenedor-input">
+                                                                    <span id="golesLabelFinal_0" class="texto-general">Goles</span>
+                                                                </div>
+                                                                <div class="col-8 col-md-4 contenedor-input">
+                                                                    <input type="number" id="golesEquipoFinal_0" class="form-control text-center"placeholder="-" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 contenedor-input-penales">
+                                                        <div class="container-fluid">
+                                                            <div class="row align-items-center justify-content-center">
+                                                                <div class="col-4 col-md-6 contenedor-input">
+                                                                    <span id="penalesLabelFinal_0" class="texto-general">Penales</span>
+                                                                </div>
+                                                                <div class="col-8 col-md-4 contenedor-input">
+                                                                    <input type="number" id="penalesEquipoFinal_0" class="form-control text-center"placeholder="-" disabled/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1 text-center p-0">
+                                <div class="separador-resultados-inputs"></div>
+                            </div>
+                            <div class="col-5 text-center contenedor-inputs p-0">
+                                <div class="container-fluid">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-12 p-0">
+                                            <div class="container-fluid">
+                                                <div class="row align-items-center justify-content-center">
+                                                    <div class="col-12 contenedor-input-goles">
+                                                        <div class="container-fluid">
+                                                            <div class="row align-items-center justify-content-center">
+                                                                <div class="col-8 col-md-4 contenedor-input">
+                                                                    <input type="number" id="golesEquipoFinal_1" class="form-control text-center"placeholder="-"/>
+                                                                </div>
+                                                                <div class="col-4 col-md-6 contenedor-input">
+                                                                    <span id="golesLabelFinal_1" class="texto-general">Goles</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 contenedor-input-penales">
+                                                        <div class="container-fluid">
+                                                            <div class="row align-items-center justify-content-center">
+                                                                <div class="col-8 col-md-4 contenedor-input">
+                                                                    <input type="number" id="penalesEquipoFinal_1" class="form-control text-center"placeholder="-" disabled/>
+                                                                </div>
+                                                                <div class="col-4 col-md-6 contenedor-input">
+                                                                    <span id="penalesLabelFinal_1" class="texto-general">Penales</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adorno-resultados2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-botones">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-3 text-center">
+                    <button id="reiniciarDatos" class="btn btn-general">Reiniciar Datos</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button id="guardarResultado" class="btn btn-general">Guardar Resultado</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button id="siguiente" class="btn btn-general">Siguiente</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</Layout>
+
+<script>
+
+    import type { EquipoParticipante } from "./../data/interfaz";
+    import type { Partido } from "./../data/partido";
+
+    let clasificadosFinal: EquipoParticipante[];
+
+    let partidoFinal: Partido;
+
+    let clasificadosFinalLS = localStorage.getItem("clasificadosFinal");
+    if (clasificadosFinalLS) {
+        clasificadosFinal = JSON.parse(clasificadosFinalLS);
+    } else {
+        clasificadosFinal = Array(2).fill(null);
+    }
+
+    if (!localStorage.getItem("partidoFinal")) {
+
+        const partido: Partido = {
+            jugado: false,
+            equipo1: clasificadosFinal[0],
+            equipo2: clasificadosFinal[1],
+            golesEquipo1: -1,
+            golesEquipo2: -1,
+            penalesEquipo1: -1,
+            penalesEquipo2: -1,
+        };
+        
+        partidoFinal = partido;
+
+        localStorage.setItem("partidoFinal", JSON.stringify(partidoFinal));
+    } else {
+        let partidoFinalLS = localStorage.getItem("partidoFinal");
+        partidoFinal = JSON.parse(partidoFinalLS!);
+    }
+
+    //console.log(partidoFinal);
+
+    // Resultado
+    const btnGuardarResultado = document.getElementById("guardarResultado");
+    const btnReiniciarDatos = document.getElementById("reiniciarDatos");
+    const btnSiguiente = document.getElementById("siguiente");
+
+    let ganador : EquipoParticipante | null = null;
+
+    let ganadorLS = localStorage.getItem("ganadorTorneo");
+    if (ganadorLS) {
+        ganador = JSON.parse(ganadorLS);
+    } else {
+        ganador = null;
+    }
+
+    const hayGanador = () => {
+        if (ganador !== null) {
+            (btnSiguiente as HTMLButtonElement).disabled = false;
+        } else {
+            (btnSiguiente as HTMLButtonElement).disabled = true;
+        }
+    }
+
+    const reiniciarDatos = () => {
+        
+        partidoFinal = {
+            jugado: false,
+            equipo1: clasificadosFinal[0],
+            equipo2: clasificadosFinal[1],
+            golesEquipo1: -1,
+            golesEquipo2: -1,
+            penalesEquipo1: -1,
+            penalesEquipo2: -1,
+        };
+
+        localStorage.setItem("partidoFinal", JSON.stringify(partidoFinal));
+        localStorage.removeItem("ganadorTorneo");
+        window.location.reload();
+
+    }
+
+    const comprobacion = () => {
+        let partidoFinalLS_Aux = localStorage.getItem("partidoFinal");
+        if (partidoFinalLS_Aux) {
+            const partidoFinal_Aux = JSON.parse(partidoFinalLS_Aux);
+
+            if(JSON.stringify(partidoFinal) !== JSON.stringify(partidoFinal_Aux)) {
+                localStorage.setItem("partidoFinal", JSON.stringify(partidoFinal));
+                localStorage.removeItem("ganadorTorneo");
+            }
+
+        } else {
+            localStorage.setItem("partidoFinal", JSON.stringify(partidoFinal));
+            localStorage.removeItem("ganadorTorneo");
+        }
+    }
+
+    const guardarResultados = () => {
+        const golesEquipo1 = document.getElementById("golesEquipoFinal_0") as HTMLInputElement;
+        const golesEquipo2 = document.getElementById("golesEquipoFinal_1") as HTMLInputElement;
+        const penalesEquipo1 = document.getElementById("penalesEquipoFinal_0") as HTMLInputElement;
+        const penalesEquipo2 = document.getElementById("penalesEquipoFinal_1") as HTMLInputElement;
+
+        if (golesEquipo1.value !== '' && golesEquipo2.value !== '') {
+            partidoFinal.jugado = true;
+            partidoFinal.golesEquipo1 = parseInt(golesEquipo1.value);
+            partidoFinal.golesEquipo2 = parseInt(golesEquipo2.value);
+
+            if (penalesEquipo1.value !== '' && penalesEquipo2.value !== '') {
+                partidoFinal.penalesEquipo1 = parseInt(penalesEquipo1.value);
+                partidoFinal.penalesEquipo2 = parseInt(penalesEquipo2.value);
+            } else {
+                partidoFinal.penalesEquipo1 = -1;
+                partidoFinal.penalesEquipo2 = -1;
+            }
+
+        } else {
+            partidoFinal.jugado = false;
+            partidoFinal.golesEquipo1 = -1;
+            partidoFinal.golesEquipo2 = -1;
+            partidoFinal.penalesEquipo1 = -1;
+            partidoFinal.penalesEquipo2 = -1;
+        }
+
+        completarEquipoGanador();
+
+        comprobacion();
+
+        hayGanador();
+
+    }
+
+    const completarEquipoGanador = () => {
+
+        if (partidoFinal.jugado || (partidoFinal.golesEquipo1 !== -1 && partidoFinal.golesEquipo2 !== -1)) {
+            partidoFinal.jugado = true;
+        
+            comprobacion();
+
+            if (partidoFinal.golesEquipo1 > partidoFinal.golesEquipo2) {
+                ganador = partidoFinal.equipo1;
+            } else if (partidoFinal.golesEquipo1 < partidoFinal.golesEquipo2) {
+                ganador = partidoFinal.equipo2;
+            } else {
+                if (partidoFinal.penalesEquipo1 > partidoFinal.penalesEquipo2) {
+                    ganador = partidoFinal.equipo1;
+                } else if (partidoFinal.penalesEquipo1 < partidoFinal.penalesEquipo2) {
+                    ganador = partidoFinal.equipo2;
+                }
+            }
+
+        }
+
+        const ganadorTorneoLS_Aux = localStorage.getItem("ganadorTorneo");
+        if (ganadorTorneoLS_Aux) {
+            const ganadorTorneoAux = JSON.parse(ganadorTorneoLS_Aux);
+
+            if (JSON.stringify(ganadorTorneoAux) !== JSON.stringify(ganador)) {
+                localStorage.setItem("ganadorTorneo", JSON.stringify(ganador));
+            }
+
+        } else {
+            localStorage.setItem("ganadorTorneo", JSON.stringify(ganador));
+        }
+
+    }
+
+    const actualizarTamanoTextoEquipos = () => {
+        const esPantallaGrande = window.innerWidth > 992;
+        const texto = (equipo: any) => esPantallaGrande ? equipo.nombre : equipo.diminutivo;
+        const nombreEquipo1 = document.getElementById("nombreEquipoFinal_0");
+        const nombreEquipo2 = document.getElementById("nombreEquipoFinal_1");
+        const golesLabelEquipo1 = document.getElementById("golesLabelFinal_0");
+        const golesLabelEquipo2 = document.getElementById("golesLabelFinal_1");
+        const penalesLabelEquipo1 = document.getElementById("penalesLabelFinal_0");
+        const penalesLabelEquipo2 = document.getElementById("penalesLabelFinal_1");
+        (nombreEquipo1 as HTMLSpanElement).textContent = texto(partidoFinal.equipo1);
+        (nombreEquipo2 as HTMLSpanElement).textContent = texto(partidoFinal.equipo2);
+        (golesLabelEquipo1 as HTMLSpanElement).textContent = "Gol";
+        (golesLabelEquipo2 as HTMLSpanElement).textContent = "Gol";
+        (penalesLabelEquipo1 as HTMLSpanElement).textContent = "Pen";
+        (penalesLabelEquipo2 as HTMLSpanElement).textContent = "Pen";
+    };
+
+    window.addEventListener("resize", actualizarTamanoTextoEquipos);
+
+    const validarEstadoPartido = () => {
+        const goles1 = document.getElementById("golesEquipoFinal_0") as HTMLInputElement;
+        const goles2 = document.getElementById("golesEquipoFinal_1") as HTMLInputElement;
+        const penales1 = document.getElementById("penalesEquipoFinal_0") as HTMLInputElement;
+        const penales2 = document.getElementById("penalesEquipoFinal_1") as HTMLInputElement;
+
+        const g1 = goles1.value !== '' ? Number(goles1.value) : null;
+        const g2 = goles2.value !== '' ? Number(goles2.value) : null;
+        const p1 = penales1.value !== '' ? Number(penales1.value) : null;
+        const p2 = penales2.value !== '' ? Number(penales2.value) : null;
+
+        (btnGuardarResultado as HTMLButtonElement).disabled = true;
+
+        if (g1 === null && g2 === null){
+            (btnGuardarResultado as HTMLButtonElement).disabled = false;
+        }
+
+        if (g1 === null || g2 === null) return;
+
+        if (g1 === g2) {
+            penales1.disabled = false;
+            penales2.disabled = false;
+
+            if (p1 !== null && p2 !== null) {
+                if (p1 === p2) {
+                    alert("No puedes dejar el partido empatado en penales.");
+                    return;
+                }
+                (btnGuardarResultado as HTMLButtonElement).disabled = false;
+            }
+        } else {
+            penales1.disabled = true;
+            penales2.disabled = true;
+            penales1.value = '';
+            penales2.value = '';
+            (btnGuardarResultado as HTMLButtonElement).disabled = false;
+        }
+    }
+
+    const rellenarInformacionEquipos = () =>{
+        const escudoEquipo1 = document.getElementById("escudoEquipoFinal_0");
+        const nombreEquipo1 = document.getElementById("nombreEquipoFinal_0");
+        const escudoEquipo2 = document.getElementById("escudoEquipoFinal_1");
+        const nombreEquipo2 = document.getElementById("nombreEquipoFinal_1");
+        const golesEquipo1 = document.getElementById("golesEquipoFinal_0");
+        const golesEquipo2 = document.getElementById("golesEquipoFinal_1");
+        const penalesEquipo1 = document.getElementById("penalesEquipoFinal_0");
+        const penalesEquipo2 = document.getElementById("penalesEquipoFinal_1");
+
+        (escudoEquipo1 as HTMLImageElement).src = partidoFinal.equipo1.img;
+        (nombreEquipo1 as HTMLSpanElement).textContent = partidoFinal.equipo1.nombre;
+        (escudoEquipo2 as HTMLImageElement).src = partidoFinal.equipo2.img;
+        (nombreEquipo2 as HTMLSpanElement).textContent = partidoFinal.equipo2.nombre;
+        (golesEquipo1 as HTMLInputElement).value = partidoFinal.golesEquipo1 != -1 ? String(partidoFinal.golesEquipo1 || '0') : '';
+        (golesEquipo2 as HTMLInputElement).value = partidoFinal.golesEquipo2 != -1 ? String(partidoFinal.golesEquipo2 || '0') : '';
+        (penalesEquipo1 as HTMLInputElement).value = partidoFinal.penalesEquipo1 != -1 ? String(partidoFinal.penalesEquipo1 || '0') : '';
+        (penalesEquipo2 as HTMLInputElement).value = partidoFinal.penalesEquipo2 != -1 ? String(partidoFinal.penalesEquipo2 || '0') : '';
+
+        if (partidoFinal.golesEquipo1 != -1 && partidoFinal.golesEquipo2 != -1 && partidoFinal.golesEquipo1 === partidoFinal.golesEquipo2) {
+            (penalesEquipo1 as HTMLInputElement).disabled = false;
+            (penalesEquipo2 as HTMLInputElement).disabled = false;
+        } else {
+            (penalesEquipo1 as HTMLInputElement).disabled = true;
+            (penalesEquipo2 as HTMLInputElement).disabled = true;
+        }
+
+        golesEquipo1?.addEventListener('change', () => validarEstadoPartido());
+        golesEquipo2?.addEventListener('change', () => validarEstadoPartido());
+        penalesEquipo1?.addEventListener('change', () => validarEstadoPartido());
+        penalesEquipo2?.addEventListener('change', () => validarEstadoPartido());
+
+        completarEquipoGanador();
+
+        hayGanador();
+
+        (btnGuardarResultado as HTMLButtonElement).addEventListener("click", () => {
+            guardarResultados();
+        });
+
+        btnReiniciarDatos?.addEventListener("click", () => {
+            reiniciarDatos();
+        });
+
+        btnSiguiente?.addEventListener("click", () => {
+            window.location.href = "/ganador";
+        });
+
+    }
+
+    rellenarInformacionEquipos();
+
+    actualizarTamanoTextoEquipos();
+
+
+</script>
+
+<style>
+
+    @keyframes fadeInUp {
+	  0% {
+	    opacity: 0;
+	  }
+	  100% {
+	    opacity: 1;
+	  }
+	}
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    input[type=number] { -moz-appearance:textfield; }
+
+    .titulo-final{
+        font-size: 3.5rem;
+        color: #bf9747;
+        text-shadow: 0px -1px 3px #f0c878;
+    }
+
+    .contenedor-titulo-final{
+        position: relative;
+    }
+
+    .contenedor-titulo{
+        margin-bottom: 3rem;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .contenedor-interfaz{
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .contenedor-nombres{
+        padding-top: 1rem;
+        padding-bottom: 0.9rem;
+        background: white;
+        background: linear-gradient(180deg,rgba(6, 6, 6, 1) 0%, rgba(47, 42, 34, 1) 50%, rgba(6, 6, 6, 1) 100%);
+    }
+
+    .contenedor-escudo{
+        padding: 1rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        max-width: 250px;
+        width: 100%;
+        height: auto;
+        background: #BDC6C9;
+        background: radial-gradient(circle,rgba(189, 198, 201, 1) 0%, rgba(189, 198, 201, 1) 50%, rgba(130, 142, 146, 1) 100%);
+        border-radius: 50%;
+        border: 5px solid #806c3d;
+    }
+
+    .contenedor-duelo-nombres{
+        margin-top: 1rem;
+        position: relative;
+    }
+
+    .contenedor-duelo-escudos{
+    }
+
+    .contenedor-duelo-resultados{
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    .contenedor-escudo-fondo1{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        background: radial-gradient(circle at left, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%);
+    }
+
+    .contenedor-logo-fondo{
+        background-color: rgba(0,0,0,0);
+    }
+
+    .contenedor-escudo-fondo2{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        background: radial-gradient(circle at right, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%);
+    }
+
+    .contenedor-letra-vs{
+        padding-top: 0.7rem;
+        padding-bottom: 0.4rem;
+        background: #C19A39;
+        background: linear-gradient(168deg,rgba(193, 154, 57, 1) 0%, rgba(143, 114, 40, 1) 50%, rgba(92, 73, 26, 1) 100%);
+        border: 1px solid #91732c;
+        box-shadow: -2px -2px 2px black, 2px 2px 2px black;
+        z-index: 2;
+    }
+
+    .contenedor-inputs{
+        background: white;
+        background: linear-gradient(180deg,rgba(6, 6, 6, 1) 0%, rgba(47, 42, 34, 1) 50%, rgba(6, 6, 6, 1) 100%);    
+    }
+
+    .contenedor-input-goles, .contenedor-input-penales  {
+        padding-top: 0.9rem;
+        padding-bottom: 0.8rem;
+        background: white;
+        background: linear-gradient(180deg,rgba(6, 6, 6, 1) 0%, rgba(47, 42, 34, 1) 50%, rgba(6, 6, 6, 1) 100%); 
+    }
+
+    .contenedor-input-goles{
+        border-bottom: 1px solid #bfbebb;
+    }
+
+    .contenedor-botones{
+        margin-bottom: 3rem;
+    }
+
+    .separador-resultados-inputs{
+        padding: 4rem 2.3rem 4rem 2.3rem;
+        background: #637685;
+        background: linear-gradient(168deg,rgba(99, 118, 133, 1) 0%, rgba(79, 95, 107, 1) 50%, rgba(43, 52, 59, 1) 100%);
+        border: 1px solid #20262b;
+        z-index: 5;
+    }
+
+    .letra-vs{
+        font-size: 2rem;
+        color: #100f0f;
+        text-shadow: -1px 0px 2px black;
+    }
+
+    .adorno-nombres-1, .adorno-resultados1{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0%;
+        width: 91.7%;
+        height: 1px;
+        background-color: #bfbebb;
+        z-index: 1;
+    }
+
+    .adorno-nombres-2, .adorno-resultados2{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 101%;
+        width: 91.7%;
+        height: 1px;
+        background-color: #bfbebb;
+        z-index: 5;
+    }
+
+    .adorno-resultados2{
+        top: 100%;
+    }
+
+    .adorno-titulo{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 55%;
+        width: 250px;
+        height: 2px;
+        background: #ffffff;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(247, 235, 200, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        z-index: 1;
+    }
+
+    .logo-torneo{
+        max-width: 150px;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(5px 2px 5px #615238 ) drop-shadow(-5px 2px 5px #615238);
+    }
+
+    .escudo-equipo-final{
+        max-height: 150px;
+        height: 100%;
+        width: auto;
+    }
+
+    .nombre-equipo{
+        font-size: 1.5rem;
+        color: #e1e2e3;
+    }
+
+    .btn-general{
+        padding-top: 0.7rem;
+    }
+
+    @media (max-width: 992px){
+
+        .texto-general{
+            font-size: 0.8rem;
+        }
+
+        .titulo-pagina{
+            padding-top: 0;
+            font-size: 1rem;
+        }
+
+        .titulo-final{
+            font-size: 2rem;
+            text-shadow: 0px -1px 2px #f0c878;
+        }
+
+        .contenedor-titulo {
+            margin-bottom: 1.5rem;
+        }
+
+        .contenedor-escudo{
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+        }
+
+        .contenedor-input{
+            padding: 0.5rem;
+        }
+
+        .letra-vs{
+            font-size: 1rem;
+        }
+
+        .contenedor-letra-vs{
+            padding: 0.9rem 0.4rem 0.9rem 0.4rem;
+        }
+
+        .adorno-titulo{
+            width: 150px;
+            top: 50%;
+        }
+
+        .escudo-equipo-final{
+            max-height: 80px;
+            height: auto;
+        }
+
+        .btn-general{
+            width: 100%;
+            padding-top: 0.4rem;
+        }
+
+        .separador-resultados-inputs{
+            padding: 5rem 1rem 5rem 1rem;
+        }
+
+    }
+
+    @media (max-width: 576px){
+        .escudo-equipo-final{
+            max-height: 50px;
+            height: auto;
+        }
+    }
+
+</style>

@@ -1,0 +1,280 @@
+---
+import Layout from "./../layouts/main-layout.astro";
+
+const numeroEquiposPorLado = 8;
+
+---
+
+<Layout titulo = "Clasificados a Octavos">
+
+    <main>
+        <div class="contenedor-titulo">
+            <a href="/grupos">
+                <img src="/images/volver.png" alt="volver" class="img-fluid btn-volver">
+            </a>
+            
+            <div class="container-fluid contenedor-titulo-octavos">
+                <div class="row">
+                    <div class="col-12 text-center" style="margin-bottom: 0.5rem;">
+                        <h1 class="texto-general titulo-pagina titulo-octavos">OCTAVOS DE FINAL</h1>
+                    </div>
+                    <div class="adorno-titulo"></div>
+                    <div class="col-12 text-center">
+                        <h2 class="texto-general titulo-pagina">Clasificados</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-equipos-clasificados">
+            <div class="row justify-content-evenly">
+                <div class="col-8 col-md-3">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center align-items-center">
+                            {Array.from({ length: numeroEquiposPorLado }, (_, index) => (
+                                <div class="col-8 contenedor-equipo">
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center align-items-center">
+                                            <div class="col-4 text-center">
+                                                <img id={`img-equipo-parte1-${index + 1}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                            </div>
+                                            <div class="col-8">
+                                                <span id={`nombre-equipo-parte1-${index + 1}`} class="texto-general">Equipo {index + 1}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-md-3">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center align-items-center">
+                            {Array.from({ length: numeroEquiposPorLado }, (_, index) => (
+                                <div class="col-8 contenedor-equipo">
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center align-items-center">
+                                            <div class="col-4 text-center">
+                                                <img id={`img-equipo-parte2-${index + 1}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                            </div>
+                                            <div class="col-8">
+                                                <span id={`nombre-equipo-parte2-${index + 1}`} class="texto-general">Equipo {index + 1}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-btn">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-10 text-center">
+                    <button id="btn-continuar" class="btn-siguiente">Siguiente fase</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+</Layout>
+
+<script>
+
+    import type { EquipoParticipante } from "./../data/interfaz";
+    import type { Partido } from "./../data/partido";
+
+    let primerosEquipos: EquipoParticipante[] = [];
+    let segundosEquipos: EquipoParticipante[] = [];
+    let partidosOctavos: Partido[] = [];
+    let partidosOctavosParte1: Partido[] = [];
+    let partidosOctavosParte2: Partido[] = [];
+
+    const botonContinuar = document.getElementById("btn-continuar");
+    if (botonContinuar) {
+        botonContinuar.addEventListener("click", () => {
+            window.location.href = "/resultados_octavos";
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        primerosEquipos = JSON.parse(localStorage.getItem("primerosGrupo") || "[]");
+        segundosEquipos = JSON.parse(localStorage.getItem("segundosGrupo") || "[]");
+
+        primerosEquipos.forEach((equipo, index) => {
+            const imgEquipo = document.getElementById(`img-equipo-parte1-${index + 1}`);
+            const nombreEquipo = document.getElementById(`nombre-equipo-parte1-${index + 1}`);
+            if (imgEquipo && nombreEquipo) {
+                (imgEquipo as HTMLImageElement).src = equipo.img;
+                nombreEquipo.textContent = equipo.nombre;
+            }
+        });
+
+        segundosEquipos.forEach((equipo, index) => {
+            const imgEquipo = document.getElementById(`img-equipo-parte2-${index + 1}`);
+            const nombreEquipo = document.getElementById(`nombre-equipo-parte2-${index + 1}`);
+            if (imgEquipo && nombreEquipo) {
+                (imgEquipo as HTMLImageElement).src = equipo.img;
+                nombreEquipo.textContent = equipo.nombre;
+            }
+        });
+
+        const actualizarTamanoTexto = () => {
+            const esPantallaGrande = window.innerWidth > 992;
+            const texto = (equipo: any) => esPantallaGrande ? equipo.nombre : equipo.diminutivo;
+            primerosEquipos.forEach((equipo, index) => {
+                const nombreEquipo = document.getElementById(`nombre-equipo-parte1-${index + 1}`);
+                if (nombreEquipo) {
+                    nombreEquipo.textContent = texto(equipo);
+                }
+            });
+            segundosEquipos.forEach((equipo, index) => {
+                const nombreEquipo = document.getElementById(`nombre-equipo-parte2-${index + 1}`);
+                if (nombreEquipo) {
+                    nombreEquipo.textContent = texto(equipo);
+                }
+            });
+        };
+
+        actualizarTamanoTexto();
+        window.addEventListener("resize", actualizarTamanoTexto);
+
+        if (!localStorage.getItem("partidosOctavos")) {
+
+            for (let i = 0; i < 7; i += 2) {
+                const partidoParte1: Partido = {
+                    jugado: false,
+                    equipo1: primerosEquipos[i],
+                    equipo2: segundosEquipos[i + 1],
+                    golesEquipo1: -1,
+                    golesEquipo2: -1,
+                    penalesEquipo1: -1,
+                    penalesEquipo2: -1,
+                };
+                const partidoParte2: Partido = {
+                    jugado: false,
+                    equipo1: primerosEquipos[i + 1],
+                    equipo2: segundosEquipos[i],
+                    golesEquipo1: -1,
+                    golesEquipo2: -1,
+                    penalesEquipo1: -1,
+                    penalesEquipo2: -1,
+                };
+                partidosOctavosParte1.push(partidoParte1);
+                partidosOctavosParte2.push(partidoParte2);
+            }
+
+            partidosOctavos = partidosOctavosParte1.concat(partidosOctavosParte2);
+            localStorage.setItem("partidosOctavos", JSON.stringify(partidosOctavos));
+
+        }
+
+    });
+
+</script>
+
+<style>
+
+    @keyframes fadeInUp {
+	  0% {
+	    opacity: 0;
+	  }
+	  100% {
+	    opacity: 1;
+	  }
+	}
+
+    .titulo-octavos{
+        font-size: 3.5rem;
+        color: #bf9747;
+        text-shadow: 0px -1px 3px #f0c878;
+    }
+
+    .contenedor-titulo-octavos{
+        position: relative;
+    }
+
+    .contenedor-titulo{
+        margin-bottom: 3rem;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .contenedor-equipo{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        background: radial-gradient(circle at right, rgba(139, 162, 181, 0.5) 5%, rgba(0,0,0,0) 20%) ,
+              radial-gradient(circle at left, rgba(139, 162, 181, 0.5) 5%, rgba(0,0,0,0) 20%);
+    }
+
+    .contenedor-equipos-clasificados{
+        margin-bottom: 3rem;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .contenedor-btn{
+        margin-bottom: 4rem;
+    }
+
+    .adorno-titulo{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 55%;
+        width: 250px;
+        height: 2px;
+        background: #ffffff;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(247, 235, 200, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        z-index: 1;
+    }
+    
+    .btn-siguiente{
+        width: auto;
+        padding: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+
+    @media (max-width: 992px){
+
+        .titulo-pagina{
+            padding-top: 0;
+            font-size: 1rem;
+        }
+
+        .titulo-octavos{
+            font-size: 2rem;
+            text-shadow: 0px -1px 2px #f0c878;
+        }
+
+        .adorno-titulo{
+            width: 150px;
+            top: 50%;
+        }
+
+        .contenedor-titulo {
+            margin-bottom: 1.5rem;
+        }
+
+        .escudo-img-sorteo{
+    	    max-height: 30px;
+    	    width: auto;
+    	}
+
+        .contenedor-equipo{
+            margin-top: 0.6rem;
+            margin-bottom: 0.6rem;
+        }
+    }
+
+</style>

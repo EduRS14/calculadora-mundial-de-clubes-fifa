@@ -5,8 +5,14 @@ let adelante_mini : String = ">"
 
 <div class="container-fluid" style="margin-top: 2rem; margin-bottom: 4rem;">
     <div class="row justify-content-center">
-        <div class="col-10 col-md-5 text-center">
+        <div class="col-10 col-md-4 text-center">
             <button id="btn-reiniciar" class="btn-reiniciar">Reiniciar todos los resultados</button>
+        </div>
+        <div class="col-10 col-md-4 text-center">
+            <button id="btn-continuar" class="btn-siguiente" disabled>Siguiente fase*</button>
+        </div>
+        <div id="contenedor-indicacion" class="col-10 text-center contenedor-indicacion">
+            <span class="texto-general texto-indicacion">*Debes completar todos los resultados para <strong style="color: #dbd5ba;">ir la siguiente fase</strong></span>
         </div>
     </div>
 </div>
@@ -131,6 +137,9 @@ let adelante_mini : String = ">"
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-10 text-center">
+            <span id="partidosTotales" class="texto-general">Partidos totales: 0</span>
         </div>
     </div>
 </div>
@@ -271,6 +280,7 @@ let adelante_mini : String = ">"
 
 <script>
 
+    import type { EquipoParticipante } from "./../data/interfaz";
     import type { Fecha } from "./../data/fecha"
 
     let fechasResultados : Fecha = {
@@ -318,13 +328,99 @@ let adelante_mini : String = ">"
         }
     }
 
-    const fechas = ["fechasGrupo1", "fechasGrupo2", "fechasGrupo3", "fechasGrupo4", "fechasGrupo5", "fechasGrupo6", "fechasGrupo7", "fechasGrupo8"];
+    const fechas : string[] = ["fechasGrupo1", "fechasGrupo2", "fechasGrupo3", "fechasGrupo4", "fechasGrupo5", "fechasGrupo6", "fechasGrupo7", "fechasGrupo8"];
+
+    const letrasGrupos : string[] = ["A", "B", "C", "D", "E", "F", "G", "H"];
+
+    let grupos: EquipoParticipante[] = Array(8).fill(null);
+
+    let idsPrimerosGrupo : number[] = Array(8).fill(null);
+
+    let idsSegundosGrupo : number[] = Array(8).fill(null);
+
+    let partidosJugadosPorGrupo : number[];
 
     let grupoActual: number = 0;
 
     let grupoEquiposActual : any;
 
     let iniciado : boolean = false;
+
+    let partidosJugadosTotales = 0;
+
+    let mostrarPartidosJugados = document.getElementById("partidosTotales");
+
+    let btnContinuar = document.getElementById("btn-continuar");
+    btnContinuar?.addEventListener("click", () => {
+
+        let primeros: (EquipoParticipante)[] = Array(8).fill(null);
+        let segundos: (EquipoParticipante)[] = Array(8).fill(null);
+
+        for (let i = 0; i < 8; i++) {
+            primeros[i] = (grupos[i][idsPrimerosGrupo[i]]);
+            segundos[i] = (grupos[i][idsSegundosGrupo[i]]);
+        }
+
+        //console.log(primeros);
+        //console.log(segundos);
+
+        const primerosGrupoLS = localStorage.getItem("primerosGrupo");
+        const segundosGrupoLS = localStorage.getItem("segundosGrupo");
+
+        if (primerosGrupoLS && segundosGrupoLS) {
+            const primerosGrupo = JSON.parse(primerosGrupoLS);
+            const segundosGrupo = JSON.parse(segundosGrupoLS);
+
+            if (JSON.stringify(primerosGrupo) !== JSON.stringify(primeros) &&
+                JSON.stringify(segundosGrupo) !== JSON.stringify(segundos)) {
+                localStorage.setItem("primerosGrupo", JSON.stringify(primeros));
+                localStorage.setItem("segundosGrupo", JSON.stringify(segundos));
+
+                localStorage.removeItem("partidosOctavos");
+                localStorage.removeItem("clasificadosCuartos");
+                localStorage.removeItem("partidosCuartos");
+                localStorage.removeItem("clasificadosSemifinales");
+                localStorage.removeItem("partidosSemifinales");
+                localStorage.removeItem("clasificadosFinal");
+                localStorage.removeItem("partidoFinal");
+                localStorage.removeItem("ganadorTorneo");
+            } 
+
+        } else {
+            localStorage.setItem("primerosGrupo", JSON.stringify(primeros));
+            localStorage.setItem("segundosGrupo", JSON.stringify(segundos));
+
+            localStorage.removeItem("partidosOctavos");
+            localStorage.removeItem("clasificadosCuartos");
+            localStorage.removeItem("partidosCuartos");
+            localStorage.removeItem("clasificadosSemifinales");
+            localStorage.removeItem("partidosSemifinales");
+            localStorage.removeItem("clasificadosFinal");
+            localStorage.removeItem("partidoFinal");
+            localStorage.removeItem("ganadorTorneo");
+        }
+
+        window.location.href = "/clasificados_octavos";
+    });
+
+    const contenedorIndicacion = document.getElementById("contenedor-indicacion");
+
+    const actualizarTextoPartidosJugados = () => {
+        partidosJugadosTotales = partidosJugadosPorGrupo.reduce((total, partidos) => total + partidos, 0);
+        if (mostrarPartidosJugados) {
+            mostrarPartidosJugados.textContent = "Partidos totales: " + partidosJugadosTotales;
+        }
+
+        if (btnContinuar && contenedorIndicacion && partidosJugadosTotales >= 24) {
+            btnContinuar.removeAttribute("disabled");
+            btnContinuar.textContent = "Siguiente fase";
+            contenedorIndicacion.setAttribute("hidden", "true");
+        } else {
+            btnContinuar?.setAttribute("disabled", "true");
+            contenedorIndicacion?.removeAttribute("hidden");
+        }
+
+    };
 
     const actualizarCelda = (id: string, texto: string) => {
         const celda = document.getElementById(id);
@@ -341,9 +437,30 @@ let adelante_mini : String = ">"
             }
         });
 
+        grupos = localStorage.getItem("gruposGlobales") ? JSON.parse(localStorage.getItem("gruposGlobales") || "[]") : Array(8).fill(null);
+
+        idsPrimerosGrupo = localStorage.getItem("idsPrimerosGrupo") ? JSON.parse(localStorage.getItem("idsPrimerosGrupo") || "[]") : Array(8).fill(null);
+        idsSegundosGrupo = localStorage.getItem("idsSegundosGrupo") ? JSON.parse(localStorage.getItem("idsSegundosGrupo") || "[]") : Array(8).fill(null);
+
+        let partidosJugadosPorGrupoLS = localStorage.getItem("partidosJugadosPorGrupo");
+
+        if (partidosJugadosPorGrupoLS) {
+            partidosJugadosPorGrupo = JSON.parse(partidosJugadosPorGrupoLS);
+        } else {
+            partidosJugadosPorGrupo = [0, 0, 0, 0, 0, 0, 0, 0];
+            localStorage.setItem("partidosJugadosPorGrupo", JSON.stringify(partidosJugadosPorGrupo));
+        }
+
+        actualizarTextoPartidosJugados();
+
     });
 
     const establecerTablaPosiciones = (grupoActual: number, grupoEquiposActual: any) => {
+        
+        grupos[grupoActual] = grupoEquiposActual;
+        localStorage.setItem("gruposGlobales", JSON.stringify(grupos));
+
+        //.log(grupos);
 
         const nombreGrupo = fechas[grupoActual];
         const resultadosGrupoStr = localStorage.getItem(nombreGrupo);
@@ -354,10 +471,14 @@ let adelante_mini : String = ">"
 
         const estadisticas = [[0, 0, 0, 0], [1, 0, 0, 0], [2, 0, 0, 0], [3, 0, 0, 0]]; // [index, partidosJugados, puntos, diferenciaGoles]
 
+        let puntos = 0;
+        let partidosJugados = 0;
+        let diferenciaGoles = 0;
+
         equipos.forEach((_, index) => {
-            let puntos = 0;
-            let partidosJugados = 0;
-            let diferenciaGoles = 0;
+            puntos = 0;
+            partidosJugados = 0;
+            diferenciaGoles = 0;
 
             for (let i = 1; i <= 3; i++) {
                 const partido1 = fechaResultados["fecha" + i]["partido1"];
@@ -384,10 +505,24 @@ let adelante_mini : String = ">"
             estadisticas[index] = [index, partidosJugados, puntos, diferenciaGoles];
         });
 
+        partidosJugadosPorGrupo[grupoActual] = partidosJugados;
+        localStorage.setItem("partidosJugadosPorGrupo", JSON.stringify(partidosJugadosPorGrupo));
+
+        actualizarTextoPartidosJugados();
+
         estadisticas.sort((a, b) => {
             if (b[2] !== a[2]) return b[2] - a[2]; // Puntos
             return b[3] - a[3]; // Diferencia de goles
         });
+
+        idsPrimerosGrupo[grupoActual] = estadisticas[0][0];
+        idsSegundosGrupo[grupoActual] = estadisticas[1][0];
+
+        localStorage.setItem("idsPrimerosGrupo", JSON.stringify(idsPrimerosGrupo));
+        localStorage.setItem("idsSegundosGrupo", JSON.stringify(idsSegundosGrupo));
+
+        //console.log(idsPrimerosGrupo);
+        //console.log(idsSegundosGrupo);
 
         const actualizarTamanoTexto = () => {
             const esPantallaGrande = window.innerWidth > 992;
@@ -443,7 +578,7 @@ let adelante_mini : String = ">"
 
             const elemento = document.getElementById("grupo");
             if (elemento) {
-                elemento.textContent = "Grupo " + String(grupoActual + 1);
+                elemento.textContent = "Grupo " + letrasGrupos[grupoActual];
             }
 
             num_fecha = 0;
@@ -479,7 +614,6 @@ let adelante_mini : String = ">"
 
         const nombreGrupo = fechas[grupoActual];
         const resultadosStr = localStorage.getItem(nombreGrupo);
-        console.log(resultadosStr);
         if (!resultadosStr) return;
 
         const fechaResultados = JSON.parse(resultadosStr);
@@ -573,6 +707,25 @@ let adelante_mini : String = ">"
             localStorage.removeItem(nombre_grupo);
         });
 
+        localStorage.removeItem("partidosJugadosPorGrupo");
+        localStorage.removeItem("gruposGlobales");
+        localStorage.removeItem("idsPrimerosGrupo");
+        localStorage.removeItem("idsSegundosGrupo");
+        localStorage.removeItem("primerosGrupo");
+        localStorage.removeItem("segundosGrupo");
+
+        localStorage.removeItem("partidosOctavos");
+        localStorage.removeItem("clasificadosCuartos");
+
+        localStorage.removeItem("partidosCuartos");
+        localStorage.removeItem("clasificadosSemifinales");
+
+        localStorage.removeItem("partidosSemifinales");
+        localStorage.removeItem("clasificadosFinal");
+
+        localStorage.removeItem("partidoFinal");
+        localStorage.removeItem("ganadorTorneo");
+
         location.reload();
     });
 
@@ -617,6 +770,14 @@ let adelante_mini : String = ">"
     .texto-equipo{
         margin-top: 1rem;
         margin-bottom: 1rem;
+    }
+
+    .contenedor-indicacion{
+        margin-top: 2rem;
+    }
+
+    .texto-indicacion{
+        font-size: 1.2rem;
     }
 
     .linea{
@@ -745,8 +906,8 @@ let adelante_mini : String = ">"
         z-index: 1;
     }
 
-    .btn-reiniciar{
-		width: 40%;
+    .btn-reiniciar, .btn-siguiente{
+		width: 50%;
 		padding-top: 1rem;
         padding-bottom: 1rem;
 		font-family: "Bebas Neue", sans-serif;
@@ -761,11 +922,17 @@ let adelante_mini : String = ">"
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	}
 
-    .btn-reiniciar:hover{
+    .btn-reiniciar:hover, .btn-siguiente:hover{
 		background-color: rgb(38, 36, 24);
         border: 4px solid #322c0f;
 		color: white;
 	}
+
+    .btn-siguiente:disabled{
+        border: 4px solid #2c261d;
+        background-color: #1f1d1a;
+        color: white;
+    }
 
     .btn-reiniciar:active{
 		background-color: #413b3c;
@@ -784,6 +951,10 @@ let adelante_mini : String = ">"
             font-size: 0.8rem;
             padding-top: 0;
             padding-bottom: 0;
+        }
+
+        .texto-indicacion{
+            font-size: 0.8rem;
         }
 
         .btn-guardar-fecha{
@@ -824,6 +995,14 @@ let adelante_mini : String = ">"
 
         .texto-tabla{
             font-size: 0.8rem;
+        }
+
+        .btn-reiniciar, .btn-siguiente{
+            font-size: 1rem;
+        }
+
+        .btn-reiniciar{
+            margin-bottom: 2rem;
         }
     }
 

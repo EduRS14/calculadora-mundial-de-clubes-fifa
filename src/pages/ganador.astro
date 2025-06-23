@@ -1,0 +1,214 @@
+---
+import Layout from "./../layouts/main-layout.astro";
+---
+
+<Layout titulo = "Ganador">
+
+    <main>
+        <div class="contenedor-titulo">
+            <a href="/partido_final">
+                <img src="/images/volver.png" alt="volver" class="img-fluid btn-volver">
+            </a>
+
+            <div class="container-fluid contenedor-titulo-ganador">
+                <div class="row">
+                    <div class="col-12 text-center" style="margin-bottom: 0.5rem;">
+                        <h1 class="texto-general titulo-pagina titulo-ganador">GANADOR</h1>
+                    </div>
+                    <div class="adorno-titulo"></div>
+                    <div class="col-12 text-center">
+                        <h2 class="texto-general titulo-pagina">FIFA CLUB WORLD CUP 2025</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-ganador">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-8 text-center">
+                    <img id="img-equipo-ganador" src="" alt="Escudo del equipo ganador" class="img-fluid img-equipo-ganador">
+                </div>
+                <div class="col-8 text-center contenedor-texto-ganador">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-12 contenedor-texto-individual">
+                                <span id="nombre-equipo-ganador" class="texto-general texto-nombre-ganador">Equipo Ganador</span>
+                            </div>
+                            <div class="col-12 contenedor-texto-individual">
+                                <span id="pais-equipo-ganador" class="texto-general texto-pais-ganador">Pais Ganador</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-boton">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-6 col-lg-3 text-center">
+                    <button id="menu" class="btn btn-general">Volver al Menu</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</Layout>
+
+<script>
+
+    import type { EquipoParticipante } from "./../data/interfaz";
+
+    let equipoGanador: EquipoParticipante | null = null;
+
+    let botonMenu = document.getElementById("menu") as HTMLButtonElement;
+
+    let ganadorTorneoLS = localStorage.getItem("ganadorTorneo");
+    if (ganadorTorneoLS) {
+        equipoGanador = JSON.parse(ganadorTorneoLS);
+    }
+
+    const imgEquipoGanador = document.getElementById("img-equipo-ganador") as HTMLImageElement;
+    const nombreEquipoGanador = document.getElementById("nombre-equipo-ganador") as HTMLSpanElement;
+    const paisEquipoGanador = document.getElementById("pais-equipo-ganador") as HTMLSpanElement;
+
+    if (equipoGanador) {
+        imgEquipoGanador.src = equipoGanador.img;
+        nombreEquipoGanador.textContent = equipoGanador.nombre;
+        paisEquipoGanador.textContent = equipoGanador.pais;
+    } else {
+        imgEquipoGanador.src = "/images/no_disponible.png";
+        nombreEquipoGanador.textContent = "No disponible";
+        paisEquipoGanador.textContent = "No disponible";
+    }
+
+    botonMenu.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+
+</script>
+
+<style>
+
+    @keyframes fadeInUp {
+	  0% {
+	    opacity: 0;
+	  }
+	  100% {
+	    opacity: 1;
+	  }
+	}
+
+    .titulo-ganador{
+        font-size: 3.5rem;
+        color: #bf9747;
+        text-shadow: 0px -1px 3px #f0c878;
+    }
+
+    .contenedor-titulo-ganador{
+        position: relative;
+    }
+
+    .contenedor-titulo{
+        margin-bottom: 3rem;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .contenedor-ganador{
+        margin-bottom: 5rem;
+        animation: fadeInUp 5s ease-out;
+    }
+
+    .contenedor-texto-ganador{
+        margin-top: 3rem;
+    }
+
+    .contenedor-texto-individual{
+        padding-top: 0.4rem;
+        max-height: 90px;
+    }
+
+    .contenedor-boton{
+        margin-bottom: 3rem;
+    }
+
+    .adorno-titulo{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 55%;
+        width: 300px;
+        height: 2px;
+        background: #ffffff;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(247, 235, 200, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        z-index: 1;
+    }
+
+    .img-equipo-ganador{
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        filter: drop-shadow(5px 2px 10px #708ba1) drop-shadow(-5px 2px 10px #708ba1);
+    }
+
+    .texto-nombre-ganador{
+        font-size: 4rem;
+        color: #e1e2e3;
+        text-shadow: 0px -1px 2px #77868d;
+    }
+
+    .texto-pais-ganador{
+        font-size: 2rem;
+        color: #e1e2e3;
+        text-shadow: 0px -1px 2px #77868d;
+    }
+
+    .btn-general{
+        font-size: 1.5rem;
+    }
+
+     @media (max-width: 992px){
+
+        .titulo-pagina{
+            padding-top: 0;
+            font-size: 1rem;
+        }
+
+        .titulo-ganador{
+            font-size: 2rem;
+            text-shadow: 0px -1px 2px #f0c878;
+        }
+
+        .adorno-titulo{
+            width: 150px;
+            top: 50%;
+        }
+
+        .contenedor-titulo {
+            margin-bottom: 1.5rem;
+        }
+
+        .img-equipo-ganador{
+            max-width: 150px;
+        }
+
+        .texto-nombre-ganador{
+            font-size: 2.5rem;
+        }
+
+        .texto-pais-ganador{
+            font-size: 1.5rem;
+        }
+
+        .btn-general{
+            width: 70%;
+            font-size: 1rem;
+        }
+
+    }
+
+</style>

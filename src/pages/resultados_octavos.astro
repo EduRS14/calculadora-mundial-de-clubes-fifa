@@ -1,0 +1,756 @@
+---
+import Layout from "./../layouts/main-layout.astro";
+
+const numeroPartidosPorLado = 4;
+
+---
+
+<Layout titulo = "Resultados Octavos">
+
+    <main>
+
+        <div class="contenedor-titulo">
+            <a href="/clasificados_octavos">
+                <img src="/images/volver.png" alt="volver" class="img-fluid btn-volver">
+            </a>
+            
+            <div class="container-fluid contenedor-titulo-octavos">
+                <div class="row">
+                    <div class="col-12 text-center" style="margin-bottom: 0.5rem;">
+                        <h1 class="texto-general titulo-pagina titulo-octavos">OCTAVOS DE FINAL</h1>
+                    </div>
+                    <div class="adorno-titulo"></div>
+                    <div class="col-12 text-center">
+                        <h2 class="texto-general titulo-pagina">Resultados</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-resultados">
+            <div class="d-none d-lg-block adorno-contenedor-resultados"></div>
+            <div class="row justify-content-evenly align-items-center">
+                <div class="col-12">
+                    <div class="container-fluid">
+                        <div class="row justify-content-evenly contenedor-partidos-octavos">
+                            <div class="col-12 col-lg-6">
+                                <div class="container-fluid">
+                                    <div class="row justify-content-evenly align-items-center">
+                                        {Array.from({ length: numeroPartidosPorLado }, (_, index) => (
+                                            <div class="col-10 col-md-6 contenedor-partido">
+                                                <div class="container-fluid">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 contenedor-indicaciones">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-3">
+                                                                    </div>
+                                                                    <div class="col-3 col-md-5">
+                                                                        <span class="texto-general">Equipo</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2 text-center">
+                                                                        <span class="texto-general">Gol</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2 text-center">
+                                                                        <span class="texto-general">Pen</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 contenedor-equipo equipo1">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-3 text-center">
+                                                                        <img id={`escudoEquipo1Partido_${index}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-5">
+                                                                        <span id={`nombreEquipo1Partido_${index}`} class="texto-general">Equipo1</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`golesEquipo1Partido_${index}`} class="form-control text-center" placeholder="-" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`penalesEquipo1Partido_${index}`} class="form-control text-center" placeholder="-" disabled/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 contenedor-equipo">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-3 text-center">
+                                                                        <img id={`escudoEquipo2Partido_${index}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-5">
+                                                                        <span id={`nombreEquipo2Partido_${index}`} class="texto-general">Equipo2</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`golesEquipo2Partido_${index}`} class="form-control text-center" placeholder="-" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`penalesEquipo2Partido_${index}`} class="form-control text-center" placeholder="-" disabled/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-8 col-md-4 contenedor-partido contenedor-equipo-ganador">
+                                                <div class="container-fluid">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 contenedor-indicaciones">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-4">
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <span class="texto-general">Ganador</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 contenedor-ganador">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-4 text-center">
+                                                                        <img id={`escudoGanadorPartido_${index}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <span id={`nombreGanadorPartido_${index}`} class="texto-general">Equipo Ganador</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="d-block d-md-none separador-resultados"></div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="container-fluid">
+                                    <div class="row justify-content-evenly align-items-center">
+                                        {Array.from({ length: numeroPartidosPorLado }, (_, index) => (
+                                            <div class="col-10 col-md-6 contenedor-partido">
+                                                <div class="container-fluid">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 contenedor-indicaciones">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-3">
+                                                                    </div>
+                                                                    <div class="col-3 col-md-5">
+                                                                        <span class="texto-general">Equipo</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2 text-center">
+                                                                        <span class="texto-general">Gol</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2 text-center">
+                                                                        <span class="texto-general">Pen</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 contenedor-equipo equipo1">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-3 text-center">
+                                                                        <img id={`escudoEquipo1Partido_${index + 4}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-5">
+                                                                        <span id={`nombreEquipo1Partido_${index + 4}`} class="texto-general">Equipo1</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`golesEquipo1Partido_${index + 4}`} class="form-control text-center" placeholder="-" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`penalesEquipo1Partido_${index + 4}`} class="form-control text-center" placeholder="-" disabled/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 contenedor-equipo">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-3 text-center">
+                                                                        <img id={`escudoEquipo2Partido_${index + 4}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-5">
+                                                                        <span id={`nombreEquipo2Partido_${index + 4}`} class="texto-general">Equipo2</span>
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`golesEquipo2Partido_${index + 4}`} class="form-control text-center" placeholder="-" />
+                                                                    </div>
+                                                                    <div class="col-3 col-md-2">
+                                                                        <input type="number" id={`penalesEquipo2Partido_${index + 4}`} class="form-control text-center" placeholder="-" disabled/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-8 col-md-4 contenedor-partido contenedor-equipo-ganador">
+                                                <div class="container-fluid">
+                                                    <div class="row justify-content-center align-items-center">
+                                                        <div class="col-12 contenedor-indicaciones">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-4">
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <span class="texto-general">Ganador</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 contenedor-ganador">
+                                                            <div class="container-fluid">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-4 text-center">
+                                                                        <img id={`escudoGanadorPartido_${index + 4}`} src="" alt="Escudo" class="img-fluid escudo-img-sorteo" />
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        <span id={`nombreGanadorPartido_${index + 4}`} class="texto-general">Equipo Ganador</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-block d-md-none separador-resultados"></div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor-botones">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-4 col-md-3 text-center">
+                    <button id="reiniciarDatos" class="btn btn-general">Reiniciar Datos</button>
+                </div>
+                <div class="col-4 col-md-3 text-center">
+                    <button id="guardarResultados" class="btn btn-general">Guardar Resultados</button>
+                </div>
+                <div class="col-4 col-md-3 text-center">
+                    <button id="siguienteFase" class="btn btn-general">Siguiente Fase</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</Layout>
+
+<script>
+    
+    import type { EquipoParticipante } from "./../data/interfaz";
+    import type { Partido } from "./../data/partido";
+
+    const partidosOctavosLS = localStorage.getItem("partidosOctavos");
+    const partidosOctavos = partidosOctavosLS ? JSON.parse(partidosOctavosLS) : [];
+
+    let clasificadosCuartos: (EquipoParticipante | null)[];
+    
+    let clasificadosCuartosLS = localStorage.getItem("clasificadosCuartos");
+    if (clasificadosCuartosLS) {
+        clasificadosCuartos = JSON.parse(clasificadosCuartosLS);
+    } else {
+        clasificadosCuartos = Array(8).fill(null);
+    }
+
+    const btnGuardarResultados = document.getElementById("guardarResultados");
+    const btnReiniciarDatos = document.getElementById("reiniciarDatos");
+    const btnSiguienteFase = document.getElementById("siguienteFase");
+
+    const todosLosClasificados = () => {
+        if (clasificadosCuartos.every(equipo => equipo !== null)) {
+            (btnSiguienteFase as HTMLButtonElement).disabled = false;
+        } else {
+            (btnSiguienteFase as HTMLButtonElement).disabled = true;
+        }
+
+
+    }
+
+    const reiniciarDatos = () => {
+        
+        for (let i = 0; i < partidosOctavos.length; i++) {
+            const partido = partidosOctavos[i];
+            partido.jugado = false;
+            partido.golesEquipo1 = -1;
+            partido.golesEquipo2 = -1;
+            partido.penalesEquipo1 = -1;
+            partido.penalesEquipo2 = -1;
+        }
+
+        localStorage.setItem("partidosOctavos", JSON.stringify(partidosOctavos));
+        localStorage.removeItem("clasificadosCuartos");
+        localStorage.removeItem("partidosCuartos");
+        localStorage.removeItem("clasificadosSemifinales");
+        localStorage.removeItem("partidosSemifinales");
+        localStorage.removeItem("clasificadosFinal");
+        localStorage.removeItem("partidoFinal");
+        localStorage.removeItem("ganadorTorneo");
+        window.location.reload();
+    }
+
+    const guardarResultados = () => {
+        for(let i = 0; i < partidosOctavos.length; i++) {
+            const partido = partidosOctavos[i];
+            const golesEquipo1 = document.getElementById(`golesEquipo1Partido_${i}`);
+            const golesEquipo2 = document.getElementById(`golesEquipo2Partido_${i}`);
+            const penalesEquipo1 = document.getElementById(`penalesEquipo1Partido_${i}`);
+            const penalesEquipo2 = document.getElementById(`penalesEquipo2Partido_${i}`);
+
+            if (golesEquipo1 && golesEquipo2 && (golesEquipo1 as HTMLInputElement).value !== '' && (golesEquipo2 as HTMLInputElement).value !== '') {
+                partido.jugado = true;
+
+                if (golesEquipo1 && golesEquipo2) {
+                    partido.golesEquipo1 = Number((golesEquipo1 as HTMLInputElement).value);
+                    partido.golesEquipo2 = Number((golesEquipo2 as HTMLInputElement).value);
+                }
+                if (penalesEquipo1 && penalesEquipo2 && (penalesEquipo1 as HTMLInputElement).value !== '' && (penalesEquipo2 as HTMLInputElement).value !== '') {
+                    partido.penalesEquipo1 = Number((penalesEquipo1 as HTMLInputElement).value);
+                    partido.penalesEquipo2 = Number((penalesEquipo2 as HTMLInputElement).value);
+                } else {
+                    partido.penalesEquipo1 = -1;
+                    partido.penalesEquipo2 = -1;
+                }
+
+            } else {
+                partido.jugado = false;
+                partido.golesEquipo1 = -1;
+                partido.golesEquipo2 = -1;
+                partido.penalesEquipo1 = -1;
+                partido.penalesEquipo2 = -1;
+            }
+
+            completarEquiposGanadores(partido, i);
+
+        }
+
+        let partidosOctavosLS_Aux = localStorage.getItem("partidosOctavos");
+        if (partidosOctavosLS_Aux) {
+            const partidosOctavosAux = JSON.parse(partidosOctavosLS_Aux);
+
+            if (JSON.stringify(partidosOctavosAux) !== JSON.stringify(partidosOctavos)) {
+                localStorage.setItem("partidosOctavos", JSON.stringify(partidosOctavos));
+                localStorage.removeItem("clasificadosCuartos");
+                localStorage.removeItem("partidosCuartos");
+                localStorage.removeItem("clasificadosSemifinales");
+                localStorage.removeItem("partidosSemifinales");
+                localStorage.removeItem("clasificadosFinal");
+                localStorage.removeItem("partidoFinal");
+                localStorage.removeItem("ganadorTorneo");
+            }
+
+        } else {
+            localStorage.setItem("partidosOctavos", JSON.stringify(partidosOctavos));
+            localStorage.removeItem("clasificadosCuartos");
+            localStorage.removeItem("partidosCuartos");
+            localStorage.removeItem("clasificadosSemifinales");
+            localStorage.removeItem("partidosSemifinales");
+            localStorage.removeItem("clasificadosFinal");
+            localStorage.removeItem("partidoFinal");
+            localStorage.removeItem("ganadorTorneo");
+        }
+
+        todosLosClasificados();
+
+    }
+
+    const completarEquiposGanadores = (partido: Partido, index: number) => {
+        const escudoGanador = document.getElementById(`escudoGanadorPartido_${index}`);
+        const nombreGanador = document.getElementById(`nombreGanadorPartido_${index}`);
+
+        if (partido.jugado || (partido.golesEquipo1 != -1 && partido.golesEquipo2 != -1)) {
+            partidosOctavos[index].jugado = true;
+
+            let partidosOctavosLS_Aux = localStorage.getItem("partidosOctavos");
+            if (partidosOctavosLS_Aux) {
+                const partidosOctavosAux = JSON.parse(partidosOctavosLS_Aux);
+
+                if (JSON.stringify(partidosOctavosAux) !== JSON.stringify(partidosOctavos)) {
+                    localStorage.setItem("partidosOctavos", JSON.stringify(partidosOctavos));
+                    localStorage.removeItem("clasificadosCuartos");
+                    localStorage.removeItem("partidosCuartos");
+                    localStorage.removeItem("clasificadosSemifinales");
+                    localStorage.removeItem("partidosSemifinales");
+                    localStorage.removeItem("clasificadosFinal");
+                    localStorage.removeItem("partidoFinal");
+                    localStorage.removeItem("ganadorTorneo");
+                }
+
+            } else {
+                localStorage.setItem("partidosOctavos", JSON.stringify(partidosOctavos));
+                localStorage.removeItem("clasificadosCuartos");
+                localStorage.removeItem("partidosCuartos");
+                localStorage.removeItem("clasificadosSemifinales");
+                localStorage.removeItem("partidosSemifinales");
+                localStorage.removeItem("clasificadosFinal");
+                localStorage.removeItem("partidoFinal");
+                localStorage.removeItem("ganadorTorneo");
+            }
+
+            if (partido.golesEquipo1 > partido.golesEquipo2) {
+                (escudoGanador as HTMLImageElement).src = partido.equipo1.img;
+                (nombreGanador as HTMLSpanElement).textContent = partido.equipo1.nombre;
+                clasificadosCuartos[index] = partido.equipo1;
+            } else if (partido.golesEquipo2 > partido.golesEquipo1) {
+                (escudoGanador as HTMLImageElement).src = partido.equipo2.img;
+                (nombreGanador as HTMLSpanElement).textContent = partido.equipo2.nombre;
+                clasificadosCuartos[index] = partido.equipo2;
+            } else {
+                if (partido.penalesEquipo1 > partido.penalesEquipo2) {
+                    (escudoGanador as HTMLImageElement).src = partido.equipo1.img;
+                    (nombreGanador as HTMLSpanElement).textContent = partido.equipo1.nombre;
+                    clasificadosCuartos[index] = partido.equipo1;
+                } else if (partido.penalesEquipo2 > partido.penalesEquipo1) {
+                    (escudoGanador as HTMLImageElement).src = partido.equipo2.img;
+                    (nombreGanador as HTMLSpanElement).textContent = partido.equipo2.nombre;
+                    clasificadosCuartos[index] = partido.equipo2;
+                }
+            }
+        } else {
+            (escudoGanador as HTMLImageElement).src = 'https://cdn-icons-png.flaticon.com/512/451/451727.png';
+            (nombreGanador as HTMLSpanElement).textContent = 'Pendiente';
+            clasificadosCuartos[index] = null;
+        }
+
+        const clasificadosCuartosLS_Aux = localStorage.getItem("clasificadosCuartos");
+        if (clasificadosCuartosLS_Aux) {
+            const clasificadosCuartosAux = JSON.parse(clasificadosCuartosLS_Aux);
+
+            if (JSON.stringify(clasificadosCuartosAux) !== JSON.stringify(clasificadosCuartos)) {
+                localStorage.setItem("clasificadosCuartos", JSON.stringify(clasificadosCuartos));
+                localStorage.removeItem("partidosCuartos");
+                localStorage.removeItem("clasificadosSemifinales");
+                localStorage.removeItem("partidosSemifinales");
+                localStorage.removeItem("clasificadosFinal");
+                localStorage.removeItem("partidoFinal");
+                localStorage.removeItem("ganadorTorneo");
+            }
+
+        } else {
+            localStorage.setItem("clasificadosCuartos", JSON.stringify(clasificadosCuartos));
+            localStorage.removeItem("partidosCuartos");
+            localStorage.removeItem("clasificadosSemifinales");
+            localStorage.removeItem("partidosSemifinales");
+            localStorage.removeItem("clasificadosFinal");
+            localStorage.removeItem("partidoFinal");
+            localStorage.removeItem("ganadorTorneo");
+        }
+    }
+
+    const actualizarTamanoTextoEquiposPartidos = () => {
+        const esPantallaGrande = window.innerWidth > 992;
+        const texto = (equipo: any) => esPantallaGrande ? equipo.nombre : equipo.diminutivo;
+        partidosOctavos.forEach((partido, index) => {
+            const nombreEquipo1 = document.getElementById(`nombreEquipo1Partido_${index}`);
+            const nombreEquipo2 = document.getElementById(`nombreEquipo2Partido_${index}`);
+            if (partido) {
+                (nombreEquipo1 as HTMLSpanElement).textContent = texto(partido.equipo1);
+                (nombreEquipo2 as HTMLSpanElement).textContent = texto(partido.equipo2);
+            }
+        });
+    };
+
+    window.addEventListener("resize", actualizarTamanoTextoEquiposPartidos);
+
+    const validarEstadoPartido = (index: number) => {
+        const goles1 = document.getElementById(`golesEquipo1Partido_${index}`) as HTMLInputElement;
+        const goles2 = document.getElementById(`golesEquipo2Partido_${index}`) as HTMLInputElement;
+        const penales1 = document.getElementById(`penalesEquipo1Partido_${index}`) as HTMLInputElement;
+        const penales2 = document.getElementById(`penalesEquipo2Partido_${index}`) as HTMLInputElement;
+
+        const g1 = goles1.value !== '' ? Number(goles1.value) : null;
+        const g2 = goles2.value !== '' ? Number(goles2.value) : null;
+        const p1 = penales1.value !== '' ? Number(penales1.value) : null;
+        const p2 = penales2.value !== '' ? Number(penales2.value) : null;
+
+        (btnGuardarResultados as HTMLButtonElement).disabled = true;
+
+        if (g1 === null && g2 === null){
+            (btnGuardarResultados as HTMLButtonElement).disabled = false;
+        }
+
+        if (g1 === null || g2 === null) return;
+
+        if (g1 === g2) {
+            penales1.disabled = false;
+            penales2.disabled = false;
+
+            if (p1 !== null && p2 !== null) {
+                if (p1 === p2) {
+                    alert("No puedes dejar el partido empatado en penales.");
+                    return;
+                }
+                (btnGuardarResultados as HTMLButtonElement).disabled = false;
+            }
+        } else {
+            penales1.disabled = true;
+            penales2.disabled = true;
+            penales1.value = '';
+            penales2.value = '';
+            (btnGuardarResultados as HTMLButtonElement).disabled = false;
+        }
+    }
+
+    partidosOctavos.forEach((partido, index) => {
+        const escudoEquipo1 = document.getElementById(`escudoEquipo1Partido_${index}`);
+        const nombreEquipo1 = document.getElementById(`nombreEquipo1Partido_${index}`);
+        const escudoEquipo2 = document.getElementById(`escudoEquipo2Partido_${index}`);
+        const nombreEquipo2 = document.getElementById(`nombreEquipo2Partido_${index}`);
+        const golesEquipo1 = document.getElementById(`golesEquipo1Partido_${index}`);
+        const golesEquipo2 = document.getElementById(`golesEquipo2Partido_${index}`);
+        const penalesEquipo1 = document.getElementById(`penalesEquipo1Partido_${index}`);
+        const penalesEquipo2 = document.getElementById(`penalesEquipo2Partido_${index}`);
+
+        if (partido) {
+            (escudoEquipo1 as HTMLImageElement).src = partido.equipo1.img;
+            (nombreEquipo1 as HTMLSpanElement).textContent = partido.equipo1.nombre;
+            (escudoEquipo2 as HTMLImageElement).src = partido.equipo2.img;
+            (nombreEquipo2 as HTMLSpanElement).textContent = partido.equipo2.nombre;
+            (golesEquipo1 as HTMLInputElement).value = partido.golesEquipo1 != -1 ? partido.golesEquipo1 || '0' : '';
+            (golesEquipo2 as HTMLInputElement).value = partido.golesEquipo2 != -1 ? partido.golesEquipo2 || '0' : '';
+            (penalesEquipo1 as HTMLInputElement).value = partido.penalesEquipo1 != -1 ? partido.penalesEquipo1 || '0' : '';
+            (penalesEquipo2 as HTMLInputElement).value = partido.penalesEquipo2 != -1 ? partido.penalesEquipo2 || '0' : '';
+
+            if (partido.golesEquipo1 != -1 && partido.golesEquipo2 != -1 && partido.golesEquipo1 === partido.golesEquipo2) {
+                (penalesEquipo1 as HTMLInputElement).disabled = false;
+                (penalesEquipo2 as HTMLInputElement).disabled = false;
+            } else {
+                (penalesEquipo1 as HTMLInputElement).disabled = true;
+                (penalesEquipo2 as HTMLInputElement).disabled = true;
+            }
+
+        }
+
+        golesEquipo1?.addEventListener('change', () => validarEstadoPartido(index));
+        golesEquipo2?.addEventListener('change', () => validarEstadoPartido(index));
+        penalesEquipo1?.addEventListener('change', () => validarEstadoPartido(index));
+        penalesEquipo2?.addEventListener('change', () => validarEstadoPartido(index));
+
+        actualizarTamanoTextoEquiposPartidos();
+
+        completarEquiposGanadores(partido, index);
+
+        todosLosClasificados();
+
+        (btnGuardarResultados as HTMLButtonElement).addEventListener("click", () => {
+            guardarResultados();
+        });
+
+        btnReiniciarDatos?.addEventListener("click", () => {
+            reiniciarDatos();
+        });
+
+        btnSiguienteFase?.addEventListener("click", () => {
+            window.location.href = "/clasificados_cuartos";
+        });
+
+    });
+
+</script>
+
+<style>
+
+    @keyframes fadeInUp {
+	  0% {
+	    opacity: 0;
+	  }
+	  100% {
+	    opacity: 1;
+	  }
+	}
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    input[type=number] { -moz-appearance:textfield; }
+
+    .titulo-octavos{
+        font-size: 3.5rem;
+        color: #bf9747;
+        text-shadow: 0px -1px 3px #f0c878;
+    }
+
+    .contenedor-titulo-octavos{
+        position: relative;
+    }
+
+    .contenedor-titulo{
+        margin-bottom: 3rem;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .contenedor-resultados{
+        margin-bottom: 4rem;
+        position: relative;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .contenedor-partido{
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding: 0;
+        border: 1px solid #6c7c89;
+        border-radius: 1rem;
+        background: radial-gradient(circle at right, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%) ,
+              radial-gradient(circle at left, rgba(26, 30, 31, 0.8) 0%, rgba(0,0,0,0) 50%);
+    }
+
+    .contenedor-indicaciones{
+        background-color: #3a4548;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    .contenedor-equipo{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .equipo1 {
+        border-bottom: 1px solid #6c7c89;
+    }
+
+    .contenedor-ganador{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .contenedor-botones{
+        margin-bottom: 3rem;
+    }
+
+    .adorno-titulo{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 55%;
+        width: 250px;
+        height: 2px;
+        background: #ffffff;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(247, 235, 200, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        z-index: 1;
+    }
+
+    .adorno-contenedor-resultados{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: 100vh;
+        height: 2px;
+        background: #FFFFFF;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(108, 124, 137, 1) 20%, rgba(108, 124, 137, 1) 50%, rgba(108, 124, 137, 1) 80%, rgba(0, 0, 0, 0) 100%);
+        z-index: 1;
+    }
+
+    .btn-general{
+        padding-top: 0.7rem;
+    }
+
+    .separador-resultados{
+        position:absolute;
+        padding: 0;
+        margin: 0;
+        top: 130%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 130%;
+        height: 2px;
+        background: #FFFFFF;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(108, 124, 137, 1) 20%, rgba(108, 124, 137, 1) 50%, rgba(108, 124, 137, 1) 80%, rgba(0, 0, 0, 0) 100%);
+        z-index: 1;
+    }
+
+    @media (max-width: 992px){
+
+        .texto-general{
+            font-size: 0.8rem;
+        }
+
+        .titulo-pagina{
+            padding-top: 0;
+            font-size: 1rem;
+        }
+
+        .titulo-octavos{
+            font-size: 2rem;
+            text-shadow: 0px -1px 2px #f0c878;
+        }
+
+        .adorno-titulo{
+            width: 150px;
+            top: 50%;
+        }
+
+        .contenedor-titulo {
+            margin-bottom: 1.5rem;
+        }
+
+        .contenedor-partido{
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contenedor-equipo{
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;;
+        }
+
+        .equipo1 {
+            padding-top: 0.8rem;
+            padding-bottom: 0.8rem;
+        }
+
+        .contenedor-ganador{
+            padding: 0.5rem;
+            padding-bottom: 0.8rem;
+        }
+
+        .contenedor-equipo-ganador{
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .contenedor-resultados{
+            margin-bottom: 2rem;
+        }
+
+        .contenedor-indicaciones{
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+        }
+
+        .btn-general{
+            width: 70%;
+            padding-top: 0.4rem;
+        }
+    }
+
+</style>

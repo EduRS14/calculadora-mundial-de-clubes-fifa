@@ -39,7 +39,7 @@ const grupos = ["grupo1", "grupo2", "grupo3", "grupo4", "grupo5", "grupo6", "gru
     let contenedor, fila, columna1, columna2, img;
 
     const grupos = ["grupo1", "grupo2", "grupo3", "grupo4", "grupo5", "grupo6", "grupo7", "grupo8"];
-    const nombres_grupos = ["GRUPO 1", "GRUPO 2", "GRUPO 3", "GRUPO 4", "GRUPO 5", "GRUPO 6", "GRUPO 7", "GRUPO 8"];
+    const nombres_grupos = ["GRUPO A", "GRUPO B", "GRUPO C", "GRUPO D", "GRUPO E", "GRUPO F", "GRUPO G", "GRUPO H"];
 
     grupos.forEach((grupo, index: number) => {
 
@@ -54,7 +54,7 @@ const grupos = ["grupo1", "grupo2", "grupo3", "grupo4", "grupo5", "grupo6", "gru
 
         for (let i = index * 4; i < index * 4 + 4; i++) {
             elemento = document.createElement("div");
-            elemento.classList.add("col-3");
+            elemento.classList.add("col-6", "col-md-3", "contenedor-equipo");
 
             contenedor = document.createElement("div");
             contenedor.classList.add("container-fluid", "justify-content-center");
@@ -87,7 +87,7 @@ const grupos = ["grupo1", "grupo2", "grupo3", "grupo4", "grupo5", "grupo6", "gru
             lista_elementos?.appendChild(elemento);
         };
         elemento = document.createElement("div");
-        elemento.classList.add("col-10", "mt-4");
+        elemento.classList.add("col-10", "contenedor-btn");
         let btn = document.createElement("button");
         btn.textContent = "FECHAS";
         btn.id = String(index);
@@ -150,6 +150,7 @@ const grupos = ["grupo1", "grupo2", "grupo3", "grupo4", "grupo5", "grupo6", "gru
             height: auto;
             margin-top: 2rem;
             padding-bottom: 1rem;
+            border: 1px solid rgb(161, 161, 161, 0.2);
         }
 
         .titulo-grupo{
