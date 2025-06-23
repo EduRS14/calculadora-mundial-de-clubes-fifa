@@ -368,7 +368,7 @@ let adelante_mini : String = ">"
             const primerosGrupo = JSON.parse(primerosGrupoLS);
             const segundosGrupo = JSON.parse(segundosGrupoLS);
 
-            if (JSON.stringify(primerosGrupo) !== JSON.stringify(primeros) &&
+            if (JSON.stringify(primerosGrupo) !== JSON.stringify(primeros) ||
                 JSON.stringify(segundosGrupo) !== JSON.stringify(segundos)) {
                 localStorage.setItem("primerosGrupo", JSON.stringify(primeros));
                 localStorage.setItem("segundosGrupo", JSON.stringify(segundos));
